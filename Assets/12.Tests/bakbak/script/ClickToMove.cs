@@ -15,7 +15,7 @@ public class ClickToMove : MonoBehaviour
 
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.Enable();
-        _inputActions.Player.Attack.performed += ClickToMoveCall;
+        _inputActions.Player.MoveRequest.performed += ClickToMoveCall;
 
         _rb = GetComponent<Rigidbody>();
     }
@@ -24,7 +24,7 @@ public class ClickToMove : MonoBehaviour
     {
         if (_inputActions != null)
         {
-            _inputActions.Player.Attack.performed -= ClickToMoveCall;
+            _inputActions.Player.MoveRequest.performed -= ClickToMoveCall;
             _inputActions.Player.Disable();
         }
     }
