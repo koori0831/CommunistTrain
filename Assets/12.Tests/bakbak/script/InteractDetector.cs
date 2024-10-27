@@ -10,6 +10,8 @@ public class InteractDetector : MonoBehaviour
     List<Collider> collidersInRange = new List<Collider>();
     Dictionary<Collider, IInteractable> interacts = new Dictionary<Collider, IInteractable>();
 
+    private Collider currentClosestCollider;
+
     private void Awake()
     {
         
@@ -23,28 +25,58 @@ public class InteractDetector : MonoBehaviour
         interacts.Add(other, interaction);
         collidersInRange.Add(other);
 
-        if (CheckObjectDistant(collidersInRange) == other)
-        {
-            (interacts[other] as IEnterInteractionHandler).EnterInteraction();
-        }
+        InteractEnable();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        
-        (interacts[other] as IExitInterationHandler).ExitInteraction();
-        
+        InteractEnable();
         collidersInRange.Remove(other);
-        interacts.Remove(other);
-
-        if (collidersInRange.Count > 0)
+        if(interacts.Count == 1)
         {
-            (interacts[CheckObjectDistant(collidersInRange)] as IEnterInteractionHandler).EnterInteraction();
+            (interacts[currentClosestCollider] as IExitInterationHandler).ExitInteraction();
+            currentClosestCollider = null;
+        }
+        interacts.Remove(other);
+    }
+    private void Update()
+    {
+        InteractEnable();
+    }
+
+    private void InteractEnable()
+    {
+        if (interacts.IsUnityNull())
+        {
+            currentClosestCollider = null;
+            return;
+        }
+
+        Collider closestCollider = CheckObjectDistant(collidersInRange);
+        if (currentClosestCollider != closestCollider)
+        {
+            if (currentClosestCollider != null)
+            {
+                if (interacts.Count > 0)
+                {
+                    IExitInterationHandler exitHandler = interacts[currentClosestCollider] as IExitInterationHandler;
+
+                    exitHandler?.ExitInteraction();
+                }
+            }
+
+            if (closestCollider != null)
+            {
+                currentClosestCollider = closestCollider;
+                IEnterInteractionHandler enterHandler = interacts[currentClosestCollider] as IEnterInteractionHandler;
+
+                enterHandler?.EnterInteraction();
+            }
         }
     }
 
     /// <summary>
-    /// 콜라이더중 가장 가까운 콜라이더를 반환하는 함수입니다.
+    /// 콜라이더중 가장 가까운 콜라이더를 반환하는 함수.
     /// </summary>
     /// <param name="colliders"></param>
     /// <returns></returns>

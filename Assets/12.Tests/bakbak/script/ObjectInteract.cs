@@ -5,11 +5,11 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractionHandler, IExitInte
 {
     public void EnterInteraction()
     {
-        Debug.Log("Enter");
+
     }
 
     public void ExitInteraction()
     {
-        Debug.Log("Exit");
+
     }
 }

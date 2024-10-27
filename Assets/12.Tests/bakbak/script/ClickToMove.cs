@@ -7,7 +7,6 @@ public class ClickToMove : MonoBehaviour
     private NavMeshAgent _agentNavMesh;
     private InputSystem_Actions _inputActions;
 
-    private Rigidbody _rb;
 
     private void Awake()
     {
@@ -17,7 +16,6 @@ public class ClickToMove : MonoBehaviour
         _inputActions.Player.Enable();
         _inputActions.Player.Attack.performed += ClickToMoveCall;
 
-        _rb = GetComponent<Rigidbody>();
     }
 
     private void OnDestroy()
