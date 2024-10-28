@@ -4,20 +4,18 @@ using UnityEngine.InputSystem;
 
 public class ClickToMove : MonoBehaviour
 {
-    private NavMeshAgent _agent;
+    private NavMeshAgent _agentNavMesh;
     private InputSystem_Actions _inputActions;
 
-    private Rigidbody _rb;
 
     private void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>(); 
+        _agentNavMesh = GetComponent<NavMeshAgent>(); 
 
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.Enable();
         _inputActions.Player.MoveRequest.performed += ClickToMoveCall;
 
-        _rb = GetComponent<Rigidbody>();
     }
 
     private void OnDestroy()
@@ -29,11 +27,6 @@ public class ClickToMove : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        print(_agent.velocity);
-    }
-
     public void ClickToMoveCall(InputAction.CallbackContext context)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -41,7 +34,7 @@ public class ClickToMove : MonoBehaviour
         {
             Vector3 randomOffset = Random.insideUnitSphere * 0.5f;
             randomOffset.y = 0;
-            _agent.destination = hitInfo.point + randomOffset;
+            _agentNavMesh.destination = hitInfo.point + randomOffset;
         }
     }
 }
