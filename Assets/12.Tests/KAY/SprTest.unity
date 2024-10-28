@@ -211,6 +211,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &139569713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: ef2a094b2aeb9234caf089dc5ec77898, type: 3}
+  m_PrefabInstance: {fileID: 454193580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &454193580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,16 +268,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5464036543452946900, guid: ef2a094b2aeb9234caf089dc5ec77898, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930310590595761662, guid: ef2a094b2aeb9234caf089dc5ec77898, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.751
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930310590595761662, guid: ef2a094b2aeb9234caf089dc5ec77898, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.722
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: ef2a094b2aeb9234caf089dc5ec77898, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 454193582}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: ef2a094b2aeb9234caf089dc5ec77898, type: 3}
 --- !u!4 &454193581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: ef2a094b2aeb9234caf089dc5ec77898, type: 3}
   m_PrefabInstance: {fileID: 454193580}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &454193582
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139569713}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc71082177ef91f4eb3257de2c057d44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &645805443
 GameObject:
   m_ObjectHideFlags: 0
