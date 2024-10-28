@@ -223,6 +223,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Irina3
       objectReference: {fileID: 0}
+    - target: {fileID: -7957782886559071850, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: FootL
+      objectReference: {fileID: 0}
+    - target: {fileID: -7731676508861465724, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: FootR
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -263,6 +271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7058488132100509078, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: SholderL
+      objectReference: {fileID: 0}
     - target: {fileID: -6811336164913757635, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5151852
@@ -271,9 +283,65 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.05972278
       objectReference: {fileID: 0}
+    - target: {fileID: -6563401848970216045, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: LegL
+      objectReference: {fileID: 0}
+    - target: {fileID: -2733790939935877200, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: HandL
+      objectReference: {fileID: 0}
+    - target: {fileID: -2017618952739509540, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: KneeR
+      objectReference: {fileID: 0}
     - target: {fileID: -1406736754831263328, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1400571
+      objectReference: {fileID: 0}
+    - target: {fileID: -92693326119471961, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: HandR
+      objectReference: {fileID: 0}
+    - target: {fileID: -68335246140457126, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: ArmR
+      objectReference: {fileID: 0}
+    - target: {fileID: 78471700787550081, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 194309714041984361, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: ArmL
+      objectReference: {fileID: 0}
+    - target: {fileID: 920959869780310259, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: KneeL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211159870650604860, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9754
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211159870650604860, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819535352533773542, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: SholderR
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366908512556070649, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: LegR
+      objectReference: {fileID: 0}
+    - target: {fileID: 8328154032291258505, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: Chima
+      objectReference: {fileID: 0}
+    - target: {fileID: 8328245557112063522, guid: e06b6f165fcbb9948b643e8e072bf7d5, type: 3}
+      propertyPath: m_Name
+      value: Body
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
