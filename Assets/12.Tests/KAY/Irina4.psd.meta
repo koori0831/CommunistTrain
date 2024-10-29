@@ -100,7 +100,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: "\uBA38\uB9AC"
+  - name: Head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -832,7 +832,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
     spritePosition: {x: 420, y: 690}
-  - name: "\uCE58\uB9C8"
+  - name: Chima
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1470,7 +1470,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 314, y: 477}
     spritePosition: {x: 534, y: 382}
-  - name: "\uBB34\uB98ER"
+  - name: KneeR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -2118,7 +2118,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 729, y: 205}
     spritePosition: {x: 602, y: 169}
-  - name: "\uB2E4\uB9ACR"
+  - name: LegR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -2571,7 +2571,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 729, y: 4}
     spritePosition: {x: 529, y: 266}
-  - name: "\uB2E4\uB9ACL"
+  - name: LegL
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -3154,7 +3154,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 518, y: 603}
     spritePosition: {x: 530, y: 343}
-  - name: "\uBAB8"
+  - name: Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -3690,7 +3690,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 477}
     spritePosition: {x: 490, y: 480}
-  - name: "\uD314R"
+  - name: ArmR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -4481,7 +4481,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 880, y: 205}
     spritePosition: {x: 688, y: 486}
-  - name: "\uC190R"
+  - name: HandR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -4938,7 +4938,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 518, y: 477}
     spritePosition: {x: 644, y: 397}
-  - name: "\uC5B4\uAE68\uC624"
+  - name: SholderR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -5618,7 +5618,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 892, y: 477}
     spritePosition: {x: 662, y: 608}
-  - name: "\uD314L"
+  - name: ArmL
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -6290,7 +6290,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 689, y: 477}
     spritePosition: {x: 494, y: 496}
-  - name: "\uC190L"
+  - name: HandL
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -6822,7 +6822,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 802, y: 647}
     spritePosition: {x: 471, y: 458}
-  - name: "\uC5B4\uAE68\uC67C"
+  - name: SholderL
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -7417,7 +7417,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 610, y: 603}
     spritePosition: {x: 544, y: 617}
-  - name: "\uBC1CR"
+  - name: FootR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -7996,7 +7996,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 689, y: 644}
     spritePosition: {x: 679, y: 172}
-  - name: "\uBB34\uB98EL"
+  - name: KneeL
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -8733,7 +8733,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 802, y: 477}
     spritePosition: {x: 522, y: 203}
-  - name: "\uBC1CL"
+  - name: FootL
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -9601,8 +9601,8 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
-  - name: "\uBA38\uB9AC"
-    spriteName: "\uBA38\uB9AC"
+  - name: Head
+    spriteName: Head
     isGroup: 0
     parentIndex: -1
     spriteID: 029d7196b9713bf4a833e6d9e5358298
@@ -9611,8 +9611,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uCE58\uB9C8"
-    spriteName: "\uCE58\uB9C8"
+  - name: Chima
+    spriteName: Chima
     isGroup: 0
     parentIndex: -1
     spriteID: ca788fea6b2b73945bdb2a74bd0229dc
@@ -9621,8 +9621,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uBB34\uB98ER"
-    spriteName: "\uBB34\uB98ER"
+  - name: KneeR
+    spriteName: KneeR
     isGroup: 0
     parentIndex: -1
     spriteID: 8245b276c3bdc4a42ad541155f57b8fa
@@ -9631,8 +9631,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uB2E4\uB9ACR"
-    spriteName: "\uB2E4\uB9ACR"
+  - name: LegR
+    spriteName: LegR
     isGroup: 0
     parentIndex: -1
     spriteID: 824885f60fd9b56448e2ccfa9e8585fb
@@ -9641,8 +9641,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uB2E4\uB9ACL"
-    spriteName: "\uB2E4\uB9ACL"
+  - name: LegL
+    spriteName: LegL
     isGroup: 0
     parentIndex: -1
     spriteID: dc69b0b335bfcea4e8bf3c2298cf7436
@@ -9651,8 +9651,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uBAB8"
-    spriteName: "\uBAB8"
+  - name: Body
+    spriteName: Body
     isGroup: 0
     parentIndex: -1
     spriteID: a3c4425a157cac740b9a242d8bba5408
@@ -9661,8 +9661,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uD314R"
-    spriteName: "\uD314R"
+  - name: ArmR
+    spriteName: ArmR
     isGroup: 0
     parentIndex: -1
     spriteID: cf28c340a52938548b61c417e2609039
@@ -9671,8 +9671,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uC190R"
-    spriteName: "\uC190R"
+  - name: HandR
+    spriteName: HandR
     isGroup: 0
     parentIndex: -1
     spriteID: a9ea6109e7e7e7743b8746c164957780
@@ -9681,8 +9681,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uC5B4\uAE68\uC624"
-    spriteName: "\uC5B4\uAE68\uC624"
+  - name: SholderR
+    spriteName: SholderR
     isGroup: 0
     parentIndex: -1
     spriteID: 8ab4875963091584696a2a66fa9667de
@@ -9691,8 +9691,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uD314L"
-    spriteName: "\uD314L"
+  - name: ArmL
+    spriteName: ArmL
     isGroup: 0
     parentIndex: -1
     spriteID: f0024fe6555437b46b9b94328718a76a
@@ -9701,8 +9701,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uC190L"
-    spriteName: "\uC190L"
+  - name: HandL
+    spriteName: HandL
     isGroup: 0
     parentIndex: -1
     spriteID: 4428ab594be5f00498b1027a0b4f778a
@@ -9711,8 +9711,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uC5B4\uAE68\uC67C"
-    spriteName: "\uC5B4\uAE68\uC67C"
+  - name: SholderL
+    spriteName: SholderL
     isGroup: 0
     parentIndex: -1
     spriteID: 8ab63daa121e61b44a62eee529344405
@@ -9721,8 +9721,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uBC1CR"
-    spriteName: "\uBC1CR"
+  - name: FootR
+    spriteName: FootR
     isGroup: 0
     parentIndex: -1
     spriteID: f9e5599689de6774fbbc7d61062d7af5
@@ -9731,8 +9731,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uBB34\uB98EL"
-    spriteName: "\uBB34\uB98EL"
+  - name: KneeL
+    spriteName: KneeL
     isGroup: 0
     parentIndex: -1
     spriteID: 736a166caa8be8749a00d03c9ce1361d
@@ -9741,8 +9741,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: "\uBC1CL"
-    spriteName: "\uBC1CL"
+  - name: FootL
+    spriteName: FootL
     isGroup: 0
     parentIndex: -1
     spriteID: 038e99e51fcf4804cb2641ff2126a720
