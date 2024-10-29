@@ -11,7 +11,7 @@ TagManager:
   - Interactable
   - Water
   - UI
-  - 
+  - WeekText
   - 
   - 
   - 
@@ -42,7 +42,7 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: UI
-    uniqueID: 3361951121
+    uniqueID: 342543741
     locked: 0
   m_RenderingLayers:
   - Default
