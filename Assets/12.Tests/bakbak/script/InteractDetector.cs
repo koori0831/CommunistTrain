@@ -22,8 +22,16 @@ public class InteractDetector : MonoBehaviour
 
         IEnterInteractionHandler interaction = other.GetComponent<IEnterInteractionHandler>();
 
-        interacts.Add(other, interaction);
-        collidersInRange.Add(other);
+        if(!interacts.ContainsKey(other))
+        {
+            interacts.Add(other, interaction);
+            collidersInRange.Add(other);
+        }
+        else
+        {
+            currentClosestCollider = null;
+            collidersInRange.Clear();
+        }
 
         InteractEnable();
     }
@@ -32,8 +40,9 @@ public class InteractDetector : MonoBehaviour
     {
         InteractEnable();
         collidersInRange.Remove(other);
-        if(interacts.Count == 1)
+        if(interacts.Count <= 1)
         {
+
             (interacts[currentClosestCollider] as IExitInterationHandler).ExitInteraction();
             currentClosestCollider = null;
         }
@@ -46,7 +55,7 @@ public class InteractDetector : MonoBehaviour
 
     private void InteractEnable()
     {
-        if (interacts.IsUnityNull())
+        if (interacts.Count<=0)
         {
             currentClosestCollider = null;
             return;
