@@ -28,13 +28,13 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractionHandler, IExitInte
         UIDisapear();
     }
 
-    public void UIApear()
+    private void UIApear()
     {
         _interactionUI.gameObject.SetActive(true);
         _interactionUI.DOScale(effectSize, effectDuration).SetEase(Ease.InQuint);
     }
-
-    public void UIDisapear()
+    
+    private void UIDisapear()
     {
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_interactionUI.DOScale(defaltSize, effectDuration).SetEase(Ease.InQuint))

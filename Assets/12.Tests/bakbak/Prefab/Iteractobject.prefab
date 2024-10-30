@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8754595732816802128}
   - component: {fileID: 1081963160206077115}
   - component: {fileID: 992035718975710051}
-  - component: {fileID: 7648869319082038869}
+  - component: {fileID: 272587949341976331}
   m_Layer: 3
   m_Name: Iteractobject
   m_TagString: Untagged
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &7648869319082038869
+--- !u!114 &272587949341976331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectSize: {x: 1, y: 1, z: 1}
   defaltSize: {x: 0, y: 0, z: 0}
-  effectDuration: 0.5
+  effectDuration: 0.2
 --- !u!1 &4366883236038130804
 GameObject:
   m_ObjectHideFlags: 0
