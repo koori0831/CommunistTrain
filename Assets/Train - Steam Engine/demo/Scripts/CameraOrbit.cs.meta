@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: d9a7483dba0f74843a6da237bff7c3e5
+timeCreated: 1537304513
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/demo/Scripts/CameraOrbit.cs
+  uploadId: 277487

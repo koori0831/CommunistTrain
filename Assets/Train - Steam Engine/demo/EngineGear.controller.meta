@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a36a7f9c46050474fb307253774c0ec6
+timeCreated: 1473004789
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/demo/EngineGear.controller
+  uploadId: 277487

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 81dd48f5644c33448a21ab6456c4116f
+timeCreated: 1537303145
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/Meshes/Materials/sp4449_eng_cabin.mat
+  uploadId: 277487
