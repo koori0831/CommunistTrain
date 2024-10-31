@@ -1514,10 +1514,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 81841069}
-  - {fileID: 1174916847}
   - {fileID: 1634286515}
   - {fileID: 2059596638}
   - {fileID: 2014254031}
+  - {fileID: 1174916847}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &585802326
@@ -1998,7 +1998,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012484546640, guid: 1eaec9f94b3088e479f57135b4fbe53c, type: 3}
       propertyPath: m_Name
-      value: SE_Engine (1)
+      value: SE_Engine
       objectReference: {fileID: 0}
     - target: {fileID: 4000011420188592, guid: 1eaec9f94b3088e479f57135b4fbe53c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
