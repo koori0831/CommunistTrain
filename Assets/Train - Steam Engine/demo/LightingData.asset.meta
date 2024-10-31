@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e3aa1fcebd17ba741891698dba707add
+timeCreated: 1472395861
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/demo/LightingData.asset
+  uploadId: 277487

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 10438916165e8ca4a929403f77c2d703
+timeCreated: 1473089265
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/demo/Scripts/cameraswitch.cs
+  uploadId: 277487

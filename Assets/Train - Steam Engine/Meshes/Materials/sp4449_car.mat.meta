@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e81a96ea56406aa4c824aa2ddc12e9b1
+timeCreated: 1537303147
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/Meshes/Materials/sp4449_car.mat
+  uploadId: 277487

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ee51e8bd79b13f94c9de559d4860301f
+timeCreated: 1541530183
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/demo/DoorOpen.anim
+  uploadId: 277487
