@@ -5,22 +5,22 @@ public class SpriteSorter : MonoBehaviour
 {
     [SerializeField] private bool dynamicSorting;
 
-    private int defaltOrderInLayer;
+    private int _defaltOrderInLayer;
 
-    private SpriteRenderer sortTargetRenderer;
-    private SortingGroup sortTargetGroup;
+    private SpriteRenderer _sortTargetRenderer;
+    private SortingGroup _sortTargetGroup;
     private void Start()
     {
-        sortTargetGroup = GetComponent<SortingGroup>();
-        sortTargetRenderer = GetComponent<SpriteRenderer>();
+        _sortTargetGroup = GetComponent<SortingGroup>();
+        _sortTargetRenderer = GetComponent<SpriteRenderer>();
 
-        if( sortTargetRenderer != null)
+        if( _sortTargetRenderer != null)
         {
-            defaltOrderInLayer = sortTargetRenderer.sortingOrder;
+            _defaltOrderInLayer = _sortTargetRenderer.sortingOrder;
         }
-        if( sortTargetGroup != null )
+        if( _sortTargetGroup != null )
         {
-            defaltOrderInLayer = sortTargetGroup.sortingOrder;
+            _defaltOrderInLayer = _sortTargetGroup.sortingOrder;
 
         }
         SetLayer();
@@ -36,13 +36,13 @@ public class SpriteSorter : MonoBehaviour
 
     private void SetLayer()
     {
-        if (sortTargetRenderer != null)
+        if (_sortTargetRenderer != null)
         {
-            sortTargetRenderer.sortingOrder = defaltOrderInLayer - Mathf.RoundToInt( transform.root.position.z*50);
+            _sortTargetRenderer.sortingOrder = _defaltOrderInLayer - Mathf.RoundToInt( transform.root.position.z*50);
         }
-        if (sortTargetGroup != null)
+        if (_sortTargetGroup != null)
         {
-            sortTargetGroup.sortingOrder = defaltOrderInLayer - Mathf.RoundToInt(transform.root.position.z * 50);
+            _sortTargetGroup.sortingOrder = _defaltOrderInLayer - Mathf.RoundToInt(transform.root.position.z * 50);
         }
     }
 }

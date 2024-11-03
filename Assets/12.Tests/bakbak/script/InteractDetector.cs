@@ -40,9 +40,8 @@ public class InteractDetector : MonoBehaviour
     {
         InteractEnable();
         collidersInRange.Remove(other);
-        if(interacts.Count <= 1)
+        if(interacts.Count <= 1&&currentClosestCollider!=null)
         {
-
             (interacts[currentClosestCollider] as IExitInterationHandler).ExitInteraction();
             currentClosestCollider = null;
         }

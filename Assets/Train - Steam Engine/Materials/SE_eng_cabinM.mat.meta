@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c7162386e8e5e334fb1513c377e376d0
+timeCreated: 1472397101
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/Materials/SE_eng_cabinM.mat
+  uploadId: 277487
