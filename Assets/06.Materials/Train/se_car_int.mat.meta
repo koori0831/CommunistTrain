@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3031daa3feb690e4c9f463b141c3fb95
+timeCreated: 1472578523
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/Materials/se_car_int.mat
+  uploadId: 277487
