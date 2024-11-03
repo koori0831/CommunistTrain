@@ -12,10 +12,6 @@ public class InteractDetector : MonoBehaviour
 
     private Collider currentClosestCollider;
 
-    private void Awake()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +21,8 @@ public class InteractDetector : MonoBehaviour
         if(!interacts.ContainsKey(other))
         {
             interacts.Add(other, interaction);
+            print(interacts[other]);
+            print(other);
             collidersInRange.Add(other);
         }
         else
@@ -59,7 +57,6 @@ public class InteractDetector : MonoBehaviour
             currentClosestCollider = null;
             return;
         }
-
         Collider closestCollider = CheckObjectDistant(collidersInRange);
         if (currentClosestCollider != closestCollider)
         {
@@ -92,7 +89,6 @@ public class InteractDetector : MonoBehaviour
     {
         Collider closestCollider = null;
         float closestDistance = Mathf.Infinity;
-
         foreach (Collider collider in colliders)
         {
             float distance = Vector3.Distance(transform.position, collider.transform.position);

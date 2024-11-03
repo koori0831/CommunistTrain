@@ -23,6 +23,6 @@ public class PlayerFlip : MonoBehaviour
     private void Flip()
     {
         facingDirection *= -1;
-        transform.Rotate(new Vector3(0, 180f, 0));
+        transform.localScale = new Vector3(transform.localScale.x * -1,transform.localScale.y,transform.localScale.z);
     }
 }
