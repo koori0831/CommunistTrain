@@ -8,7 +8,7 @@ public class InteractDetector : MonoBehaviour
     [SerializeField] private Transform _detectorPosition;
     [SerializeField] private LayerMask _detectorLayerMask;
     List<Collider> collidersInRange = new List<Collider>();
-    Dictionary<Collider, IInteractable> interacts = new Dictionary<Collider, IInteractable>();
+    Dictionary<Collider, IInteraction> interacts = new Dictionary<Collider, IInteraction>();
 
     private Collider currentClosestCollider;
 
@@ -16,7 +16,7 @@ public class InteractDetector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        IEnterInteractionHandler interaction = other.GetComponent<IEnterInteractionHandler>();
+        IEnterInteractableHandler interaction = other.GetComponent<IEnterInteractableHandler>();
 
         if(!interacts.ContainsKey(other))
         {
@@ -40,7 +40,7 @@ public class InteractDetector : MonoBehaviour
         collidersInRange.Remove(other);
         if(interacts.Count <= 1&&currentClosestCollider!=null)
         {
-            (interacts[currentClosestCollider] as IExitInterationHandler).ExitInteraction();
+            (interacts[currentClosestCollider] as IExitInteratableHandler).ExitInteraction();
             currentClosestCollider = null;
         }
         interacts.Remove(other);
@@ -64,7 +64,7 @@ public class InteractDetector : MonoBehaviour
             {
                 if (interacts.Count > 0)
                 {
-                    IExitInterationHandler exitHandler = interacts[currentClosestCollider] as IExitInterationHandler;
+                    IExitInteratableHandler exitHandler = interacts[currentClosestCollider] as IExitInteratableHandler;
 
                     exitHandler?.ExitInteraction();
                 }
@@ -73,7 +73,7 @@ public class InteractDetector : MonoBehaviour
             if (closestCollider != null)
             {
                 currentClosestCollider = closestCollider;
-                IEnterInteractionHandler enterHandler = interacts[currentClosestCollider] as IEnterInteractionHandler;
+                IEnterInteractableHandler enterHandler = interacts[currentClosestCollider] as IEnterInteractableHandler;
 
                 enterHandler?.EnterInteraction();
             }

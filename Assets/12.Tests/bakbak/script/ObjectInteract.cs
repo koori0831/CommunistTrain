@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class ObjectInteract : MonoBehaviour, IEnterInteractionHandler, IExitInterationHandler
+public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInteratableHandler
 {
     private Transform _interactionUI;
     [SerializeField]
@@ -18,12 +18,12 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractionHandler, IExitInte
         _interactionUI.gameObject.SetActive(false);
         _interactionUI.transform.localScale = defaltSize;
     }
-    public void EnterInteraction()
+    public virtual void EnterInteraction()
     {
         UIApear();
     }
 
-    public void ExitInteraction()
+    public virtual void ExitInteraction()
     {
         UIDisapear();
     }
