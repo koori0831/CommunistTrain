@@ -23,6 +23,11 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
         UIApear();
     }
 
+    public virtual void Interact()
+    {
+        print("³»¿ë¹° Æ¡");
+    }
+
     public virtual void ExitInteraction()
     {
         UIDisapear();

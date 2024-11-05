@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InteractDetector : MonoBehaviour
 {
@@ -11,8 +12,12 @@ public class InteractDetector : MonoBehaviour
     Dictionary<Collider, IInteraction> interacts = new Dictionary<Collider, IInteraction>();
 
     private Collider currentClosestCollider;
-
-
+    [SerializeField]
+    private InputReader _inputReader;
+    private void Awake()
+    {
+        _inputReader.OnInteraction += InteractionTry;
+    }
     private void OnTriggerEnter(Collider other)
     {
 
@@ -21,8 +26,6 @@ public class InteractDetector : MonoBehaviour
         if(!interacts.ContainsKey(other))
         {
             interacts.Add(other, interaction);
-            print(interacts[other]);
-            print(other);
             collidersInRange.Add(other);
         }
         else
@@ -32,6 +35,19 @@ public class InteractDetector : MonoBehaviour
         }
 
         InteractEnable();
+    }
+
+    private void OnDestroy()
+    {
+        if ((_inputReader != null))
+        {
+            _inputReader.OnInteraction -= InteractionTry;
+        }
+    }
+
+    private void InteractionTry()
+    {
+        interacts[currentClosestCollider].Interact();
     }
 
     private void OnTriggerExit(Collider other)
