@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class DayData
@@ -47,7 +46,7 @@ public class CalenderManager : MonoBehaviour
         _day.text = DataManager.Instance.DayData.Day.ToString();
     }
 
-    void LoadCalendarData()
+    private void LoadCalendarData()
     {
         string[] lines = Resources.Load<TextAsset>("Data/1971").text.Split('\n');
 
