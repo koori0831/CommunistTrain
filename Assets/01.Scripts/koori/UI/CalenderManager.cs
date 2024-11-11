@@ -18,13 +18,12 @@ public class DayData
 }
 public class CalenderManager : MonoBehaviour 
 {
-    private List<DayData> calendarData = new List<DayData>();
     [SerializeField] private TMP_Text _month, _day;
 
     void Awake()
     {
         LoadCalendarData();
-        DataManager.Instance.DayData = calendarData[0];
+        DataManager.Instance.DayData = DataManager.Instance.calendarData[0];
 
         _month.text = DataManager.Instance.DayData.Month.ToString();
         _day.text = DataManager.Instance.DayData.Day.ToString();
@@ -61,7 +60,7 @@ public class CalenderManager : MonoBehaviour
                     int day = int.Parse(data[1]);
                     int dayOfWeekInt = int.Parse(data[2]); // CSV에는 숫자로 저장
                     Week dayOfWeek = (Week)(dayOfWeekInt - 1); // Week enum으로 변환
-                    calendarData.Add(new DayData(month, day, dayOfWeek));
+                    DataManager.Instance.calendarData.Add(new DayData(month, day, dayOfWeek));
                 }
                 catch (FormatException)
                 {
@@ -77,13 +76,13 @@ public class CalenderManager : MonoBehaviour
             return null; // 또는 예외 처리
         }
 
-        int currentIndex = calendarData.IndexOf(currentDayData);
+        int currentIndex = DataManager.Instance.calendarData.IndexOf(currentDayData);
         if (currentIndex == -1)
         {
             return null; // 현재 날짜 데이터가 리스트에 없는 경우
         }
 
-        int nextIndex = (currentIndex + 1) % calendarData.Count;
-        return calendarData[nextIndex];
+        int nextIndex = (currentIndex + 1) % DataManager.Instance.calendarData.Count;
+        return DataManager.Instance.calendarData[nextIndex];
     }
 }
