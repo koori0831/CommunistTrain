@@ -26,5 +26,5 @@ public interface IInteraction
     /// <summary>
     /// 구체적인 인터렉션의 구현
     /// </summary>
-    //public void Interact();
+    public void Interact();
 }
