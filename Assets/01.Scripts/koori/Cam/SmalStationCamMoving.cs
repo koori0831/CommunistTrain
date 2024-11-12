@@ -8,7 +8,7 @@ public class SmalStationCamMoving : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 currentEulerAngles = transform.eulerAngles;
-        currentEulerAngles.y = Mathf.Clamp(_pcTrm.position.x *0.3f, -_angleMax, _angleMax);                                     
+        currentEulerAngles.y = Mathf.Clamp(_pcTrm.position.x *0.3f, -_angleMax, _angleMax);
         transform.eulerAngles = currentEulerAngles;
     }
 }   
