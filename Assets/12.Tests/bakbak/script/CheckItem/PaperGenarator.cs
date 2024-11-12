@@ -18,13 +18,13 @@ public class PaperGenarator : MonoBehaviour
     private void Awake()
     {
         baseArea = (Station)Random.Range(0, Enum.GetValues(typeof(Station)).Length);
-        today = DataManager.Instance.DayData;
         nameReader = GetComponent<NameReader>();
-        baseName = nameReader.GetRandomName();
     }
 
     private void Start()
     {
+        today = DataManager.Instance.calendarData[0];
+        baseName = nameReader.GetRandomName();
         GenaratePermit();
         GenarateTicket();
         OnGenarateEnd?.Invoke();
@@ -37,12 +37,23 @@ public class PaperGenarator : MonoBehaviour
         Issuer issuer = GetRandomBoolen(5) ?
             (Issuer)Enum.GetValues(typeof(Issuer)).Length :
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
+        int index = 0;
+        DayData date;
+        try
+        {
+            index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
+            date = DataManager.Instance.calendarData[index];
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError(ex.Message + " is not founded");
+        }
 
-        int index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
-        DayData date = DataManager.Instance.calendarData[index];
         if (GetRandomBoolen(5))
         {
-            int randomDay = Random.Range(0, index+1);
+            int randomDay = Random.Range(0, index);
+            print(index - randomDay);
+            print($"{index} + {randomDay}");
             date = DataManager.Instance.calendarData[index - randomDay];
         }
         else
