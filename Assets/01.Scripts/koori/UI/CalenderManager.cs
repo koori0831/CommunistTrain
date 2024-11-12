@@ -16,9 +16,11 @@ public class DayData
         DayOfWeek = dayOfWeek;
     }
 }
-public class CalenderManager : MonoBehaviour 
+public class CalenderManager : MonoSingleton<CalenderManager>
 {
     [SerializeField] private TMP_Text _month, _day;
+    public event Action OnWeeklyChanged;
+    private int _dayCount;
 
     void Awake()
     {
@@ -39,10 +41,17 @@ public class CalenderManager : MonoBehaviour
 
     private void DayChange()
     {
+        _dayCount++;
         DataManager.Instance.DayData = GetNextDay(DataManager.Instance.DayData);
 
         _month.text = DataManager.Instance.DayData.Month.ToString();
         _day.text = DataManager.Instance.DayData.Day.ToString();
+
+        if (_dayCount >= 7)
+        {
+            OnWeeklyChanged?.Invoke();
+            _dayCount = 0;
+        }
     }
 
     private void LoadCalendarData()
