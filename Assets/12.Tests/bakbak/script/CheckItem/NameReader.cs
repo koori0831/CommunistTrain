@@ -11,7 +11,7 @@ public class NameReader : MonoBehaviour
     }
     private void LoadNameData()
     {
-        string[] names = Resources.Load<TextAsset>("Data/Name").text.Split("\n");
+        string[] names = Resources.Load<TextAsset>("Data/Name")?.text.Split("\n");
 
         for (int i = 1; i < names.Length; i++)
         {
