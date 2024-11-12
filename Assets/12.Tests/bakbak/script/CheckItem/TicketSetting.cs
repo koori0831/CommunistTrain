@@ -8,7 +8,7 @@ public class TicketSetting
     public int date;
     public Station arriveStation;
     public Station beginingStation;
-    TicketSetting(string name, Issuer issuer, DayData day, Station arriveStation, Station beginingStation)
+    public TicketSetting (string name, Issuer issuer, DayData day, Station arriveStation, Station beginingStation)
     {
         this.name = name;
         this.issuer = issuer;
