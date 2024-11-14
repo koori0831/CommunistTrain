@@ -8,12 +8,14 @@ public class TicketSetting
     public int date;
     public Station arriveStation;
     public Station beginingStation;
+    public DayData day;
     public TicketSetting (string name, Issuer issuer, DayData day, Station arriveStation, Station beginingStation)
     {
         this.name = name;
         this.issuer = issuer;
         month = day.Month;
         date = day.Day;
+        this.day = day;
         this.arriveStation = arriveStation;
         this.beginingStation = beginingStation;
     }
