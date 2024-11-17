@@ -7,6 +7,7 @@ public class Permit
     public Issuer issuer;
     public int month;
     public int date;
+    public DayData day;
     public List<Station> arrowArea;
 
     public Permit(string settingName, Issuer issuerSetting, DayData date, List<Station> arrowAreas)
@@ -15,18 +16,20 @@ public class Permit
         issuer = issuerSetting;
         month = date.Month;
         this.date = date.Day;
-        foreach (Station station in arrowAreas)
-        {
-            arrowArea.Add(station);
-        }
+        day = date;
+        arrowArea = arrowAreas;
     }
 }
 
 public enum Issuer
 {
     issuer1,
-    issuer2, issuer3, issuer4, issuer5, issuer6, wrong
-
+    issuer2, 
+    issuer3, 
+    issuer4, 
+    issuer5, 
+    issuer6, 
+    wrong
 }
 
 

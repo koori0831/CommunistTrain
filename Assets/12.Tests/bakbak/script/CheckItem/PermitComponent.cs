@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PermitComponent : DragableObject
 {
@@ -28,7 +29,7 @@ public class PermitComponent : DragableObject
     private string GetAreaString()
     {
         string result = string.Empty;
-        foreach(Station station in _paperGenarator.permit.arrowArea)
+        foreach (Station station in _paperGenarator.permit.arrowArea)
         {
             result += enumFactory.GetAreaString(station) + " ";
         }

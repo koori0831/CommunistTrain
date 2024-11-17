@@ -7,10 +7,10 @@ using TMPro;
 public class PaperGenarator : MonoBehaviour
 {
     public Permit permit;
-    public TicketSetting ticketSetting;
+    public TicketSetting ticket;
     public event Action OnGenarateEnd;
 
-    private DayData today;
+    public DayData today;
     private NameReader nameReader;
     private Station baseArea;
     private string baseName;
@@ -23,11 +23,9 @@ public class PaperGenarator : MonoBehaviour
 
     private void Start()
     {
-        today = DataManager.Instance.calendarData[0];
+        today = DataManager.Instance.calendarData[0];//기본값 적용 후 수정 필요
         baseName = nameReader.GetRandomName();
         GenaratePermit();
-        GenarateTicket();
-        OnGenarateEnd?.Invoke();
     }
 
     private void GenaratePermit()
@@ -35,7 +33,7 @@ public class PaperGenarator : MonoBehaviour
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName(): baseName;
         Issuer issuer = GetRandomBoolen(5) ?
-            (Issuer)Enum.GetValues(typeof(Issuer)).Length :
+            (Issuer)Enum.GetValues(typeof(Issuer)).Length -1:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
         int index = 0;
         DayData date;
@@ -78,18 +76,24 @@ public class PaperGenarator : MonoBehaviour
             }
         }
 
+        print(name);
         permit = new Permit(name, issuer, date, arrowArea);
+        GenarateTicket();
+
     }
 
     private void GenarateTicket()
     {
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName() : baseName;
+
         Issuer issuer = GetRandomBoolen(5) ?
-            (Issuer)Enum.GetValues(typeof(Issuer)).Length :
+            (Issuer)Enum.GetValues(typeof(Issuer)).Length - 1 :
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
+
         int index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
         DayData date = DataManager.Instance.calendarData[index];
+
         if (GetRandomBoolen(95))
         {
             int randomDay = Random.Range(0, index + 1);
@@ -128,7 +132,9 @@ public class PaperGenarator : MonoBehaviour
             arrive = (Station)Random.Range(0, include.Count);
         }
 
-        ticketSetting = new TicketSetting(name, issuer, date, arrive, begin);
+        ticket = new TicketSetting(name, issuer, date, arrive, begin);
+        OnGenarateEnd?.Invoke();
+
     }
 
     private bool GetRandomBoolen(float percentage)

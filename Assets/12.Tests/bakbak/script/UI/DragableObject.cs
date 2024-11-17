@@ -11,6 +11,8 @@ public abstract class DragableObject : MonoBehaviour, IDragHandler, IBeginDragHa
     public virtual void Awake()
     {
         _dragableImage = GetComponent<Image>();
+        _dragableImage.raycastTarget = true;
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)

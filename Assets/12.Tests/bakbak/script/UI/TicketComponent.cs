@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Ticket : DragableObject, IDropHandler
+public class TicketComponent : DragableObject, IDropHandler
 {
     private RectTransform _passport, _hole;
     private Mask _holeMask;
@@ -52,10 +52,10 @@ public class Ticket : DragableObject, IDropHandler
 
     private void SetTickt()
     {
-        _issuer.text = _enumFactory.GetIssuerName(_paperGenarator.ticketSetting.issuer);
-        _name.text = _paperGenarator.ticketSetting.name;
-        _takeDay.text = _paperGenarator.ticketSetting.date.ToString();
-        _startStation.text = _enumFactory.GetAreaString( _paperGenarator.ticketSetting.beginingStation);
-        _arriveStation.text = _enumFactory.GetAreaString(_paperGenarator.ticketSetting.beginingStation);
+        _issuer.text = _enumFactory.GetIssuerName(_paperGenarator.ticket.issuer);
+        _name.text = _paperGenarator.ticket.name;
+        _takeDay.text = _paperGenarator.ticket.date.ToString();
+        _startStation.text = _enumFactory.GetAreaString( _paperGenarator.ticket.beginingStation);
+        _arriveStation.text = _enumFactory.GetAreaString(_paperGenarator.ticket.beginingStation);
     }
 }

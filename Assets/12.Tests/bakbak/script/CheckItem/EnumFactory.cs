@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnumFactory : MonoBehaviour
 {
 
-    private readonly string[] wrongIssuer = { "π÷Ω√∆º", "∞Ã¿Ô¿ÃµÈ¿« Ω∞≈Õ", "π∞∑Œ∞°", "∆°¿’", "π÷∏º" };
-    private readonly string[] wrongArea = { "π÷Ω√∆º", "∞Ã¿Ô¿ÃµÈ¿« Ω∞≈Õ", "π∞∑Œ∞°", "∆°¿’", "π÷∏º" };
+    private readonly string[] wrongIssuer = { "π÷Ω√∆º", "∞Ã¿Ô¿ÃµÈ¿« Ω∞≈Õ", "«—∞≠π∞∑Œ∞°", "∆°¿’", "π÷∏º" };
+    private readonly string[] wrongArea = { "π÷Ω√∆º", "∞Ã¿Ô¿ÃµÈ¿« Ω∞≈Õ", "«—∞≠π∞∑Œ∞°", "∆°¿’", "π÷∏º" };
     public string GetIssuerName(Issuer issuer)
     {
         return issuer switch
