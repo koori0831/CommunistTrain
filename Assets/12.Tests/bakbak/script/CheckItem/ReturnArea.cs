@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class ReturnArea : MonoBehaviour, IDropHandler
 {
     private TicketComponent _ticketComponent;
     private PermitComponent _permitComponent;
     private PaperGenarator _paperGenarator;
+    [SerializeField] float returnPos, returnDuration;
 
     public event Action<bool> OnReturnPaper;
     private void Awake()
@@ -18,11 +20,19 @@ public class ReturnArea : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         GameObject droppedObject = eventData.pointerDrag;
-        droppedObject.SetActive(false);
-        droppedObject.transform.parent = transform;
-        if(_paperGenarator.transform.childCount <= 0)
+        if (_ticketComponent.Punched == true)
         {
-            OnReturnPaper?.Invoke(ComparePaper());
+            droppedObject.transform.parent = transform;
+            Sequence moveDroppedObject = DOTween.Sequence();
+            moveDroppedObject.Append(droppedObject.GetComponent<RectTransform>().DOAnchorPosY(returnPos, returnDuration).SetEase(Ease.OutQuint)).
+                AppendCallback(() => droppedObject.SetActive(false));
+            moveDroppedObject.Play();
+
+            if (_paperGenarator.transform.childCount <= 0)
+            {
+                OnReturnPaper?.Invoke(ComparePaper());
+                print("dfadfa");
+            }
         }
     }
 

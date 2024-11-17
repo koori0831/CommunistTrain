@@ -19,7 +19,7 @@ public class WalkeTalkiePopUp : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (isPoped == false)
         {
             _rectTransform.DOAnchorPosX(defalt + effectPos, effectDuration).SetEase(Ease.OutQuint);
-        isPoped = true;
+            isPoped = true;
         }
     }
 
