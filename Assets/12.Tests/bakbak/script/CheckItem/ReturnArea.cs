@@ -31,7 +31,10 @@ public class ReturnArea : MonoBehaviour, IDropHandler
             if (_paperGenarator.transform.childCount <= 0)
             {
                 OnReturnPaper?.Invoke(ComparePaper());
-                print("dfadfa");
+                print(CompareIssuer());
+                print(CompareArea());
+                print(CompareDay());
+                print(CompareName());
             }
         }
     }
@@ -60,7 +63,9 @@ public class ReturnArea : MonoBehaviour, IDropHandler
     {
         if(_paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.beginingStation)&&
             _paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.arriveStation))
+        {
             return true;
+        }
         return false;
     }
 
