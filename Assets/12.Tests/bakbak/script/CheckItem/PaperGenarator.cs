@@ -7,10 +7,10 @@ using TMPro;
 public class PaperGenarator : MonoBehaviour
 {
     public Permit permit;
-    public TicketSetting ticketSetting;
+    public TicketSetting ticket;
     public event Action OnGenarateEnd;
 
-    private DayData today;
+    public DayData today;
     private NameReader nameReader;
     private Station baseArea;
     private string baseName;
@@ -18,16 +18,14 @@ public class PaperGenarator : MonoBehaviour
     private void Awake()
     {
         baseArea = (Station)Random.Range(0, Enum.GetValues(typeof(Station)).Length);
-        today = DataManager.Instance.DayData;
         nameReader = GetComponent<NameReader>();
-        baseName = nameReader.GetRandomName();
     }
 
     private void Start()
     {
+        today = DataManager.Instance.calendarData[0];//기본값 적용 후 수정 필요
+        baseName = nameReader.GetRandomName();
         GenaratePermit();
-        GenarateTicket();
-        OnGenarateEnd?.Invoke();
     }
 
     private void GenaratePermit()
@@ -35,14 +33,25 @@ public class PaperGenarator : MonoBehaviour
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName(): baseName;
         Issuer issuer = GetRandomBoolen(5) ?
-            (Issuer)Enum.GetValues(typeof(Issuer)).Length :
+            (Issuer)Enum.GetValues(typeof(Issuer)).Length -1:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
+        int index = 0;
+        DayData date;
+        try
+        {
+            index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
+            date = DataManager.Instance.calendarData[index];
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError(ex.Message + " is not founded");
+        }
 
-        int index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
-        DayData date = DataManager.Instance.calendarData[index];
         if (GetRandomBoolen(5))
         {
-            int randomDay = Random.Range(0, index+1);
+            int randomDay = Random.Range(0, index);
+            print(index - randomDay);
+            print($"{index} + {randomDay}");
             date = DataManager.Instance.calendarData[index - randomDay];
         }
         else
@@ -67,18 +76,24 @@ public class PaperGenarator : MonoBehaviour
             }
         }
 
+        print(name);
         permit = new Permit(name, issuer, date, arrowArea);
+        GenarateTicket();
+
     }
 
     private void GenarateTicket()
     {
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName() : baseName;
+
         Issuer issuer = GetRandomBoolen(5) ?
-            (Issuer)Enum.GetValues(typeof(Issuer)).Length :
+            (Issuer)Enum.GetValues(typeof(Issuer)).Length - 1 :
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
+
         int index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
         DayData date = DataManager.Instance.calendarData[index];
+
         if (GetRandomBoolen(95))
         {
             int randomDay = Random.Range(0, index + 1);
@@ -117,7 +132,9 @@ public class PaperGenarator : MonoBehaviour
             arrive = (Station)Random.Range(0, include.Count);
         }
 
-        ticketSetting = new TicketSetting(name, issuer, date, arrive, begin);
+        ticket = new TicketSetting(name, issuer, date, arrive, begin);
+        OnGenarateEnd?.Invoke();
+
     }
 
     private bool GetRandomBoolen(float percentage)

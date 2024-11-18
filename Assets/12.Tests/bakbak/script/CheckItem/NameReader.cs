@@ -4,6 +4,7 @@ using UnityEngine;
 public class NameReader : MonoBehaviour
 {
     private List<string> nameList = new List<string>();
+    private List<string> lastNameList = new List<string>();
 
     private void Awake()
     {
@@ -11,18 +12,24 @@ public class NameReader : MonoBehaviour
     }
     private void LoadNameData()
     {
-        string[] names = Resources.Load<TextAsset>("Data/Name")?.text.Split("\n");
+        string[] names = Resources.Load<TextAsset>("Data/Names").text.Split("\n");
 
         for (int i = 1; i < names.Length; i++)
         {
-            nameList.Add(names[i]);
+            string[] name = names[i].Split(',');
+            nameList.Add(name[0]);
+            lastNameList.Add(name[1]);
         }
     }
 
     public string GetRandomName()
     {
         int nameIndex = Random.Range(0, nameList.Count);
-        return nameList[nameIndex];
+        int lastNameIndex = Random.Range(0, lastNameList.Count);
+
+        string returnName = $"{lastNameList[lastNameIndex]} {nameList[nameIndex]}";
+        return returnName;
+
     }
 }
 
