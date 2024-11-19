@@ -31,7 +31,10 @@ public class ReturnArea : MonoBehaviour, IDropHandler
             if (_paperGenarator.transform.childCount <= 0)
             {
                 OnReturnPaper?.Invoke(ComparePaper());
-                print("dfadfa");
+                print(CompareIssuer());
+                print(CompareArea());
+                print(CompareDay());
+                print(CompareName());
             }
         }
     }
@@ -60,7 +63,9 @@ public class ReturnArea : MonoBehaviour, IDropHandler
     {
         if(_paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.beginingStation)&&
             _paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.arriveStation))
+        {
             return true;
+        }
         return false;
     }
 
@@ -69,7 +74,7 @@ public class ReturnArea : MonoBehaviour, IDropHandler
         int today = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(_paperGenarator.today));//기본값 적용후 수정 필요
         int permitIndex = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(_paperGenarator.permit.day));
         int ticketIndex = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(_paperGenarator.ticket.day));
-        if (permitIndex >= today&&ticketIndex<=today)
+        if (permitIndex >= today&&ticketIndex==today)
             return true;
         return false;   
     }

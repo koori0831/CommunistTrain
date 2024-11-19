@@ -25,6 +25,7 @@ public class PaperGenarator : MonoBehaviour
     {
         today = DataManager.Instance.calendarData[0];//기본값 적용 후 수정 필요
         baseName = nameReader.GetRandomName();
+        print(baseName);
         GenaratePermit();
     }
 
@@ -50,8 +51,6 @@ public class PaperGenarator : MonoBehaviour
         if (GetRandomBoolen(5))
         {
             int randomDay = Random.Range(0, index);
-            print(index - randomDay);
-            print($"{index} + {randomDay}");
             date = DataManager.Instance.calendarData[index - randomDay];
         }
         else
@@ -76,7 +75,6 @@ public class PaperGenarator : MonoBehaviour
             }
         }
 
-        print(name);
         permit = new Permit(name, issuer, date, arrowArea);
         GenarateTicket();
 
@@ -88,7 +86,7 @@ public class PaperGenarator : MonoBehaviour
             nameReader.GetRandomName() : baseName;
 
         Issuer issuer = GetRandomBoolen(5) ?
-            (Issuer)Enum.GetValues(typeof(Issuer)).Length - 1 :
+            (Issuer)Enum.GetValues(typeof(Issuer)).Length - 1:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
 
         int index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
@@ -96,40 +94,27 @@ public class PaperGenarator : MonoBehaviour
 
         if (GetRandomBoolen(95))
         {
-            int randomDay = Random.Range(0, index + 1);
-            date = DataManager.Instance.calendarData[index - randomDay];
+            int randomDay = index;
+            date = DataManager.Instance.calendarData[index];
         }
         else
         {
-            int randomDay = Random.Range(index, DataManager.Instance.calendarData.Count);
-            date = DataManager.Instance.calendarData[index + randomDay];
+            int randomDay = Random.Range(0, DataManager.Instance.calendarData.Count);
+            date = DataManager.Instance.calendarData[randomDay];
         }
-
         List<Station> include = permit.arrowArea;
         Station begin = Station.wrong;
         Station arrive = Station.wrong;
 
-        if(GetRandomBoolen(5) == true)
+        if(GetRandomBoolen(95) == true)
         {
-            foreach (Station item in Enum.GetValues(typeof(Station)))
-            {
-                if (include.Contains(item) == false)
-                {
-                    if (GetRandomBoolen(50))
-                    {
-                        begin = item;
-                    }
-                    else
-                    {
-                        arrive = item;
-                    }
-                }
-            }
+            arrive = include[Random.Range(0, include.Count)];
+            begin = include[Random.Range(0, include.Count)];
         }
         else
         {
-            begin = (Station)Random.Range(0,include.Count);
-            arrive = (Station)Random.Range(0, include.Count);
+            begin = (Station)Random.Range(0,Enum.GetValues(typeof(Station)).Length);
+            arrive = (Station)Random.Range(0, Enum.GetValues(typeof(Station)).Length);
         }
 
         ticket = new TicketSetting(name, issuer, date, arrive, begin);
@@ -140,7 +125,7 @@ public class PaperGenarator : MonoBehaviour
     private bool GetRandomBoolen(float percentage)
     {
         float randomValue = Random.Range(0, 100f);
-        if (randomValue > percentage)
+        if (randomValue < percentage)
         {
             return true;
         }
