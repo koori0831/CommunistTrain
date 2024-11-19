@@ -33,7 +33,7 @@ public class PaperGenarator : MonoBehaviour
     {
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName(): baseName;
-        Issuer issuer = GetRandomBoolen(95) ?
+        Issuer issuer = GetRandomBoolen(50) ?
             (Issuer)Enum.GetValues(typeof(Issuer)).Length -1:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
         int index = 0;
@@ -48,11 +48,9 @@ public class PaperGenarator : MonoBehaviour
             Debug.LogError(ex.Message + " is not founded");
         }
 
-        if (GetRandomBoolen(95))
+        if (GetRandomBoolen(5))
         {
             int randomDay = Random.Range(0, index);
-            print(index - randomDay);
-            print($"{index} + {randomDay}");
             date = DataManager.Instance.calendarData[index - randomDay];
         }
         else
@@ -67,7 +65,7 @@ public class PaperGenarator : MonoBehaviour
         };
         for (int i = 0; i < Random.Range(2,3); i++)
         {
-            if (GetRandomBoolen(95))
+            if (GetRandomBoolen(5))
             {
                 arrowArea.Add(Station.wrong);
             }
@@ -87,7 +85,7 @@ public class PaperGenarator : MonoBehaviour
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName() : baseName;
 
-        Issuer issuer = GetRandomBoolen(95) ?
+        Issuer issuer = GetRandomBoolen(5) ?
             (Issuer)Enum.GetValues(typeof(Issuer)).Length - 1:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
 
@@ -96,15 +94,14 @@ public class PaperGenarator : MonoBehaviour
 
         if (GetRandomBoolen(95))
         {
-            int randomDay = Random.Range(0, index + 1);
-            date = DataManager.Instance.calendarData[index - randomDay];
+            int randomDay = index;
+            date = DataManager.Instance.calendarData[index];
         }
         else
         {
-            int randomDay = Random.Range(index, DataManager.Instance.calendarData.Count);
-            date = DataManager.Instance.calendarData[index + randomDay];
+            int randomDay = Random.Range(0, DataManager.Instance.calendarData.Count);
+            date = DataManager.Instance.calendarData[randomDay];
         }
-
         List<Station> include = permit.arrowArea;
         Station begin = Station.wrong;
         Station arrive = Station.wrong;
