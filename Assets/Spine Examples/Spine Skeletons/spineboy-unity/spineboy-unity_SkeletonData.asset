@@ -22,7 +22,7 @@ MonoBehaviour:
     applyAdditiveMaterial: 1
     additiveMaterials:
     - pageName: spineboy.png
-      material: {fileID: 2100000, guid: aa09aa107c23cf94f848aafe240210a4, type: 2}
+      material: {fileID: 2100000, guid: 284450db0caebbd4c8461654d4ff96a0, type: 2}
     multiplyMaterials: []
     screenMaterials: []
   skeletonDataModifiers: []
