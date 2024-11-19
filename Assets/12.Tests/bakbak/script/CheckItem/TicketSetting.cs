@@ -6,6 +6,7 @@ public class TicketSetting
     public Issuer issuer;
     public int month;
     public int date;
+    public Week week;
     public Station arriveStation;
     public Station beginingStation;
     public DayData day;
@@ -15,6 +16,7 @@ public class TicketSetting
         this.issuer = issuer;
         month = day.Month;
         date = day.Day;
+        week = day.DayOfWeek;
         this.day = day;
         this.arriveStation = arriveStation;
         this.beginingStation = beginingStation;

@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PaperGenarator : MonoBehaviour
 {
@@ -25,7 +26,6 @@ public class PaperGenarator : MonoBehaviour
     {
         today = DataManager.Instance.calendarData[0];//기본값 적용 후 수정 필요
         baseName = nameReader.GetRandomName();
-        print(baseName);
         GenaratePermit();
     }
 
@@ -34,13 +34,13 @@ public class PaperGenarator : MonoBehaviour
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName(): baseName;
         Issuer issuer = GetRandomBoolen(5) ?
-            (Issuer)Enum.GetValues(typeof(Issuer)).Length -1:
+            Issuer.wrong:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
         int index = 0;
         DayData date;
         try
         {
-            index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
+            index = DataManager.Instance.calendarData.FindIndex(day => day == today);
             date = DataManager.Instance.calendarData[index];
         }
         catch (Exception ex)
@@ -63,7 +63,10 @@ public class PaperGenarator : MonoBehaviour
         {
             baseArea
         };
-        for (int i = 0; i < Random.Range(2,3); i++)
+        List<Station> defaltArea = new List<Station>(Enum.GetValues(typeof(Station)).ConvertTo<List<Station>>());
+        defaltArea.Remove(Station.wrong);
+        defaltArea.Remove(baseArea);
+        for (int i = 0; i < Random.Range(2,4); i++)
         {
             if (GetRandomBoolen(5))
             {
@@ -71,7 +74,9 @@ public class PaperGenarator : MonoBehaviour
             }
             else
             {
-                arrowArea.Add((Station)Random.Range(0, Enum.GetValues(typeof(Station)).Length-1));
+                Station temp = defaltArea[Random.Range(0, defaltArea.Count)];
+                defaltArea.Remove(temp);
+                arrowArea.Add(temp);
             }
         }
 
@@ -86,10 +91,10 @@ public class PaperGenarator : MonoBehaviour
             nameReader.GetRandomName() : baseName;
 
         Issuer issuer = GetRandomBoolen(5) ?
-            (Issuer)Enum.GetValues(typeof(Issuer)).Length - 1:
+            Issuer.wrong :
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
 
-        int index = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(today));
+        int index = DataManager.Instance.calendarData.FindIndex(day => day == today);
         DayData date = DataManager.Instance.calendarData[index];
 
         if (GetRandomBoolen(95))
@@ -109,7 +114,9 @@ public class PaperGenarator : MonoBehaviour
         if(GetRandomBoolen(95) == true)
         {
             arrive = include[Random.Range(0, include.Count)];
+            include.Remove(arrive);
             begin = include[Random.Range(0, include.Count)];
+
         }
         else
         {

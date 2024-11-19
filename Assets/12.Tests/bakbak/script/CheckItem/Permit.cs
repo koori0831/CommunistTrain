@@ -7,6 +7,7 @@ public class Permit
     public Issuer issuer;
     public int month;
     public int date;
+    public Week week;
     public DayData day;
     public List<Station> arrowArea;
 
@@ -16,6 +17,7 @@ public class Permit
         issuer = issuerSetting;
         month = date.Month;
         this.date = date.Day;
+        week = date.DayOfWeek;
         day = date;
         arrowArea = arrowAreas;
     }
