@@ -33,7 +33,7 @@ public class PaperGenarator : MonoBehaviour
     {
         string name = GetRandomBoolen(5) ?
             nameReader.GetRandomName(): baseName;
-        Issuer issuer = GetRandomBoolen(50) ?
+        Issuer issuer = GetRandomBoolen(5) ?
             (Issuer)Enum.GetValues(typeof(Issuer)).Length -1:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
         int index = 0;
