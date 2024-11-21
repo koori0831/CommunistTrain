@@ -66,6 +66,7 @@ public class PaperGenarator : MonoBehaviour
         List<Station> defaltArea = new List<Station>(Enum.GetValues(typeof(Station)).ConvertTo<List<Station>>());
         defaltArea.Remove(Station.wrong);
         defaltArea.Remove(baseArea);
+        defaltArea.ForEach(s => print(s));
         for (int i = 0; i < Random.Range(2,4); i++)
         {
             if (GetRandomBoolen(5))
@@ -75,8 +76,8 @@ public class PaperGenarator : MonoBehaviour
             else
             {
                 Station temp = defaltArea[Random.Range(0, defaltArea.Count)];
-                defaltArea.Remove(temp);
                 arrowArea.Add(temp);
+                defaltArea.Remove(temp);
             }
         }
 

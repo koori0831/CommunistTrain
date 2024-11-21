@@ -40,7 +40,7 @@ public class TicketComponent : DragableObject, IDropHandler
             
             Cliper targetComponent = droppedObject.GetComponent<Cliper>(); 
 
-            if (targetComponent != null)
+            if (targetComponent != null&&Punched==false)
             {
                 _hole.anchoredPosition = droppedObject.anchoredPosition - _dragableImage.rectTransform.anchoredPosition;
                 _passport.anchoredPosition = -_hole.anchoredPosition;

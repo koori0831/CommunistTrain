@@ -30,6 +30,8 @@ public class ReturnArea : MonoBehaviour, IDropHandler
 
             if (_paperGenarator.transform.childCount <= 0)
             {
+                print(CompareArea().ToString());
+
                 OnReturnPaper?.Invoke(ComparePaper());
             }
         }
