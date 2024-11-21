@@ -1,15 +1,8 @@
 fileFormatVersion: 2
 guid: 098c794782c2df442bdfb5384909d3f8
-timeCreated: 1541531154
-licenseType: Store
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 71536
-  packageName: Train - Steam engine
-  packageVersion: 1.0
-  assetPath: Assets/Train - Steam Engine/demo/DoorIdle.anim
-  uploadId: 277487
