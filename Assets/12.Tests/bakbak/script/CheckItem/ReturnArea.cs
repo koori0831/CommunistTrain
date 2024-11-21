@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ReturnArea : MonoBehaviour, IDropHandler
 {
@@ -30,11 +31,14 @@ public class ReturnArea : MonoBehaviour, IDropHandler
 
             if (_paperGenarator.transform.childCount <= 0)
             {
-                print(CompareArea().ToString());
-
                 OnReturnPaper?.Invoke(ComparePaper());
             }
         }
+    }
+
+    public void OnCallPolice()
+    {
+        OnReturnPaper?.Invoke(!ComparePaper());
     }
 
     private bool ComparePaper()
@@ -60,8 +64,8 @@ public class ReturnArea : MonoBehaviour, IDropHandler
     {
         if(_paperGenarator.ticket.beginingStation == Station.wrong) return false;
         if(_paperGenarator.ticket.arriveStation == Station.wrong) return false;
-        if(_paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.beginingStation)&&
-            _paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.arriveStation))
+        if(_paperGenarator.permit.allowArea.Contains(_paperGenarator.ticket.beginingStation)&&
+            _paperGenarator.permit.allowArea.Contains(_paperGenarator.ticket.arriveStation))
         {
             return true;
         }

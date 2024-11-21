@@ -10,7 +10,7 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
     [SerializeField]
     private Vector3 defaltSize;
     [SerializeField]
-    private GameObject _ticetCheckUI;
+    private CanvasControl _ticetCheckUI;
 
     [SerializeField] 
     private float effectDuration;
@@ -28,7 +28,7 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
     public virtual void Interact()
     {
         print("³»¿ë¹° Æ¡");
-        _ticetCheckUI.SetActive(true);
+        _ticetCheckUI.FadeYoyo();
     }
 
     public virtual void ExitInteraction()

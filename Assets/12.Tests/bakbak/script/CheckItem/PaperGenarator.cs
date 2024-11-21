@@ -59,29 +59,27 @@ public class PaperGenarator : MonoBehaviour
             date = DataManager.Instance.calendarData[index + randomDay];
         }
 
-        List<Station> arrowArea = new List<Station>
+        List<Station> allowArea = new List<Station>
         {
             baseArea
         };
         List<Station> defaltArea = new List<Station>(Enum.GetValues(typeof(Station)).ConvertTo<List<Station>>());
         defaltArea.Remove(Station.wrong);
-        defaltArea.Remove(baseArea);
-        defaltArea.ForEach(s => print(s));
-        for (int i = 0; i < Random.Range(2,4); i++)
+        for (int i = 0; i < Random.Range(Mathf.Max(defaltArea.Count/2,3),Mathf.Max(defaltArea.Count/2 +3, 5)); i++)
         {
             if (GetRandomBoolen(5))
             {
-                arrowArea.Add(Station.wrong);
+                allowArea.Add(Station.wrong);
             }
             else
             {
                 Station temp = defaltArea[Random.Range(0, defaltArea.Count)];
-                arrowArea.Add(temp);
+                allowArea.Add(temp);
                 defaltArea.Remove(temp);
             }
         }
 
-        permit = new Permit(name, issuer, date, arrowArea);
+        permit = new Permit(name, issuer, date, allowArea);
         GenarateTicket();
 
     }
@@ -108,12 +106,13 @@ public class PaperGenarator : MonoBehaviour
             int randomDay = Random.Range(0, DataManager.Instance.calendarData.Count);
             date = DataManager.Instance.calendarData[randomDay];
         }
-        List<Station> include = permit.arrowArea;
+        List<Station> include = permit.allowArea;
         Station begin = Station.wrong;
         Station arrive = Station.wrong;
 
         if(GetRandomBoolen(95) == true)
         {
+            include.ForEach(s=>print(s));
             arrive = include[Random.Range(0, include.Count)];
             include.Remove(arrive);
             begin = include[Random.Range(0, include.Count)];
