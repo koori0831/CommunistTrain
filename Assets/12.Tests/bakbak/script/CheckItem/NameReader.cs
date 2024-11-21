@@ -27,11 +27,11 @@ public class NameReader : MonoBehaviour
         int nameIndex = Random.Range(0, nameList.Count);
         int lastNameIndex = Random.Range(0, lastNameList.Count);
 
+        print(nameIndex);
         string name = nameList[nameIndex];
         string lastName = lastNameList[lastNameIndex];
         string returnName = null;
         returnName = lastName + " " + name;
-        //Debug.Log(name + lastName);
         return returnName;
 
     }

@@ -22,7 +22,7 @@ public class PaperGenarator : MonoBehaviour
         nameReader = GetComponent<NameReader>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         today = DataManager.Instance.calendarData[0];//기본값 적용 후 수정 필요
         baseName = nameReader.GetRandomName();

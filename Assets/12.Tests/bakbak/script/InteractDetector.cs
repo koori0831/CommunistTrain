@@ -47,6 +47,7 @@ public class InteractDetector : MonoBehaviour
 
     private void InteractionTry()
     {
+        if (currentClosestCollider == null) return;
         interacts[currentClosestCollider].Interact();
     }
 
