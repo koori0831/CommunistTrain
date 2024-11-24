@@ -1926,7 +1926,7 @@ PrefabInstance:
     - target: {fileID: 272587949341976331, guid: bedf45d4aa582f64880b01a00e85023e, type: 3}
       propertyPath: _ticetCheckUI
       value: 
-      objectReference: {fileID: 1674895840}
+      objectReference: {fileID: 1674895842}
     - target: {fileID: 1890284060980076668, guid: bedf45d4aa582f64880b01a00e85023e, type: 3}
       propertyPath: m_Name
       value: Iteractobject (1)
@@ -2887,6 +2887,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a39884a021850458b03b4151aedb75, type: 3}
+--- !u!1 &1173290149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173290151}
+  - component: {fileID: 1173290150}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1173290150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173290149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e16a6c47c12df449af2ca7d7ba5c553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolList: {fileID: 11400000, guid: 5d207992849fede4c90f5ceb51cab2bb, type: 2}
+--- !u!4 &1173290151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173290149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385095280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3561,7 +3606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1149550965}
   fadeContainer: {fileID: 1674895840}
-  fadeDuration: 3
+  fadeDuration: 1
 --- !u!1 &1829172956
 GameObject:
   m_ObjectHideFlags: 0
@@ -4456,7 +4501,7 @@ PrefabInstance:
     - target: {fileID: 272587949341976331, guid: bedf45d4aa582f64880b01a00e85023e, type: 3}
       propertyPath: _ticetCheckUI
       value: 
-      objectReference: {fileID: 1674895840}
+      objectReference: {fileID: 1674895842}
     - target: {fileID: 1890284060980076668, guid: bedf45d4aa582f64880b01a00e85023e, type: 3}
       propertyPath: m_Name
       value: Iteractobject
@@ -4510,6 +4555,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1173290151}
   - {fileID: 1839447686}
   - {fileID: 1437905504}
   - {fileID: 751256348}

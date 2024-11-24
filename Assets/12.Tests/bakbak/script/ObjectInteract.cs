@@ -3,8 +3,9 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 
 public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInteratableHandler
+
 {
-    private Transform _interactionUI;
+    private GameObject _interactionUI;
     [SerializeField]
     private Vector3 effectSize;
     [SerializeField]
@@ -14,14 +15,17 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
 
     [SerializeField] 
     private float effectDuration;
-    private void Start()
-    {
-        _interactionUI = transform.GetChild(0);
-        _interactionUI.gameObject.SetActive(false);
-        _interactionUI.transform.localScale = defaltSize;
-    }
+
+    public string PoolName => throw new System.NotImplementedException();
+
+    public GameObject ObjectPrefab => throw new System.NotImplementedException();
+
     public virtual void EnterInteraction()
     {
+        _interactionUI = PoolManager.Instance.Pop("Bubble").ObjectPrefab;
+        _interactionUI.gameObject.SetActive(false);
+        _interactionUI.transform.SetParent(transform);
+        _interactionUI.transform.localScale = defaltSize;
         UIApear();
     }
 
@@ -34,18 +38,20 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
     public virtual void ExitInteraction()
     {
         UIDisapear();
+        _interactionUI.gameObject.SetActive(false);
+        PoolManager.Instance.Push(_interactionUI.GetComponent<Ipoolable>());
     }
 
     private void UIApear()
     {
         _interactionUI.gameObject.SetActive(true);
-        _interactionUI.DOScale(effectSize, effectDuration).SetEase(Ease.InQuint);
+        _interactionUI.transform.DOScale(effectSize, effectDuration).SetEase(Ease.InQuint);
     }
     
     private void UIDisapear()
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(_interactionUI.DOScale(defaltSize, effectDuration).SetEase(Ease.InQuint))
+        sequence.Append(_interactionUI.transform.DOScale(defaltSize, effectDuration).SetEase(Ease.InQuint))
             .AppendCallback(() => _interactionUI.gameObject.SetActive(false));
         sequence.Play();
     }
