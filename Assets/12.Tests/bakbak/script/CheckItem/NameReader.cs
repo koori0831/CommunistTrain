@@ -12,7 +12,7 @@ public class NameReader : MonoBehaviour
     }
     private void LoadNameData()
     {
-        string[] names = Resources.Load<TextAsset>("Data/Names").text.Split("\n");
+        string[] names = Resources.Load<TextAsset>("Data/Names").text.Split("\r\n");
 
         for (int i = 1; i < names.Length; i++)
         {
@@ -27,7 +27,10 @@ public class NameReader : MonoBehaviour
         int nameIndex = Random.Range(0, nameList.Count);
         int lastNameIndex = Random.Range(0, lastNameList.Count);
 
-        string returnName = $"{lastNameList[lastNameIndex]} {nameList[nameIndex]}";
+        string name = nameList[nameIndex];
+        string lastName = lastNameList[lastNameIndex];
+        string returnName = null;
+        returnName = lastName + " " + name;
         return returnName;
 
     }

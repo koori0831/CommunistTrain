@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PermitComponent : DragableObject
 {
-    [SerializeField] private TextMeshProUGUI _name, _issuer, _month, _date, _arrowArea;
+    [SerializeField] private TextMeshProUGUI _name, _issuer, _takeDay, _arrowArea;
     private EnumFactory enumFactory;
 
     private PaperGenarator _paperGenarator;
@@ -21,15 +21,14 @@ public class PermitComponent : DragableObject
     {
         _name.text = _paperGenarator.permit.name;
         _issuer.text = enumFactory.GetIssuerName(_paperGenarator.permit.issuer);
-        _month.text = _paperGenarator.permit.month.ToString();
-        _date.text = _paperGenarator.permit.date.ToString();
+        _takeDay.text = $"{_paperGenarator.ticket.month} / {_paperGenarator.ticket.date} / {_paperGenarator.ticket.week}";
         _arrowArea.text = GetAreaString();
     }
 
     private string GetAreaString()
     {
         string result = string.Empty;
-        foreach (Station station in _paperGenarator.permit.arrowArea)
+        foreach (Station station in _paperGenarator.permit.allowArea)
         {
             result += enumFactory.GetAreaString(station) + " ";
         }

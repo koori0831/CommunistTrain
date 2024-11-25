@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ReturnArea : MonoBehaviour, IDropHandler
 {
@@ -31,18 +32,18 @@ public class ReturnArea : MonoBehaviour, IDropHandler
             if (_paperGenarator.transform.childCount <= 0)
             {
                 OnReturnPaper?.Invoke(ComparePaper());
-                print(CompareIssuer());
-                print(CompareArea());
-                print(CompareDay());
-                print(CompareName());
             }
         }
     }
 
+    public void OnCallPolice()
+    {
+        OnReturnPaper?.Invoke(!ComparePaper());
+    }
+
     private bool ComparePaper()
     {
-        if(_ticketComponent.Punched == true&& 
-            CompareIssuer()&&
+        if( CompareIssuer()&&
             CompareArea()&&
             CompareDay()&&
             CompareName())
@@ -55,14 +56,16 @@ public class ReturnArea : MonoBehaviour, IDropHandler
 
     private bool CompareIssuer()
     {
-        if (_paperGenarator.permit.issuer == _paperGenarator.ticket.issuer)
+        if (_paperGenarator.permit.issuer != Issuer.wrong)
             return true;
         return false;
     }
     private bool CompareArea()
     {
-        if(_paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.beginingStation)&&
-            _paperGenarator.permit.arrowArea.Contains(_paperGenarator.ticket.arriveStation))
+        if(_paperGenarator.ticket.beginingStation == Station.wrong) return false;
+        if(_paperGenarator.ticket.arriveStation == Station.wrong) return false;
+        if(_paperGenarator.permit.allowArea.Contains(_paperGenarator.ticket.beginingStation)&&
+            _paperGenarator.permit.allowArea.Contains(_paperGenarator.ticket.arriveStation))
         {
             return true;
         }
@@ -71,9 +74,9 @@ public class ReturnArea : MonoBehaviour, IDropHandler
 
     private bool CompareDay()
     {
-        int today = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(_paperGenarator.today));//기본값 적용후 수정 필요
-        int permitIndex = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(_paperGenarator.permit.day));
-        int ticketIndex = DataManager.Instance.calendarData.FindIndex(day => DataManager.Instance.calendarData.Contains(_paperGenarator.ticket.day));
+        int today = DataManager.Instance.calendarData.FindIndex(day => day == _paperGenarator.today);//기본값 적용후 수정 필요
+        int permitIndex = DataManager.Instance.calendarData.FindIndex(day => day==_paperGenarator.permit.day);
+        int ticketIndex = DataManager.Instance.calendarData.FindIndex(day => day == _paperGenarator.ticket.day);
         if (permitIndex >= today&&ticketIndex==today)
             return true;
         return false;   

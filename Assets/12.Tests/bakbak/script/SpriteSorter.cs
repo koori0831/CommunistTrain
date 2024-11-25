@@ -9,7 +9,8 @@ public class SpriteSorter : MonoBehaviour
 
     private SpriteRenderer _sortTargetRenderer;
     private SortingGroup _sortTargetGroup;
-    private void Start()
+
+    private void OnEnable()
     {
         _sortTargetGroup = GetComponent<SortingGroup>();
         _sortTargetRenderer = GetComponent<SpriteRenderer>();
