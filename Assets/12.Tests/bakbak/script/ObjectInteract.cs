@@ -11,8 +11,6 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
     [SerializeField]
     private Vector3 defaltSize;
     [SerializeField]
-    private CanvasControl _ticetCheckUI;
-    [SerializeField]
     private Transform _bubblePosition;
 
     [SerializeField] 
@@ -30,11 +28,7 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
 
     public virtual void Interact()
     {
-        if (_ticetCheckUI.gameObject.activeSelf == false&&
-            _ticetCheckUI != null)
-        {
-            _ticetCheckUI.FadeYoyo();
-        }
+        
     }
 
     public virtual void ExitInteraction()

@@ -22,7 +22,7 @@ public class TicketComponent : DragableObject, IDropHandler
         _holeMask = _hole.GetComponent<Mask>();
         _paperGenarator = GetComponentInParent<PaperGenarator>();
         _enumFactory = GetComponentInParent<EnumFactory>();
-        _paperGenarator.OnGenarateEnd += SetTickt;
+        _paperGenarator.OnGenerateEnd += SetTickt;
     }
 
     private void OnEnable()

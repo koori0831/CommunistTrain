@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8754595732816802128}
   - component: {fileID: 1081963160206077115}
   - component: {fileID: 992035718975710051}
-  - component: {fileID: 272587949341976331}
+  - component: {fileID: 733526288444674652}
   m_Layer: 3
   m_Name: Iteractobject
   m_TagString: Untagged
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &272587949341976331
+--- !u!114 &733526288444674652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,14 +142,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1890284060980076668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0348b56d9b6c1e246966b055ee02f419, type: 3}
+  m_Script: {fileID: 11500000, guid: d03e54b8ed7883f4f869655e0a0f74ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   effectSize: {x: 1, y: 1, z: 1}
   defaltSize: {x: 0, y: 0, z: 0}
-  _ticetCheckUI: {fileID: 0}
   _bubblePosition: {fileID: 2846350139763028347}
   effectDuration: 0.2
+  _ticetCheckUI: {fileID: 0}
 --- !u!1 &6079965894571219208
 GameObject:
   m_ObjectHideFlags: 0
