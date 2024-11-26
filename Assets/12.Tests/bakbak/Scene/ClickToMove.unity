@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 25666256}
   - component: {fileID: 25666255}
   - component: {fileID: 25666257}
+  - component: {fileID: 25666258}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -178,6 +179,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _month: {fileID: 1987269281}
   _day: {fileID: 1987269281}
+--- !u!114 &25666258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25666254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b3e1f87bfe8f049a128a7442fa8539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPaperData: 
 --- !u!1 &68700250
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +380,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnPos: 1500
   returnDuration: 5
+  OnReturnPaper:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1674895842}
+        m_TargetAssemblyTypeName: CanvasControl, Assembly-CSharp
+        m_MethodName: FadeOutYoyo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &78089113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1810,7 +1839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -199, y: -31}
+  m_AnchoredPosition: {x: -200, y: -35}
   m_SizeDelta: {x: 412.55, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &835545362
@@ -2772,7 +2801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1149550964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4114,7 +4143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -281, y: 60}
+  m_AnchoredPosition: {x: -280, y: 60}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984218633
@@ -4386,7 +4415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: -280}
+  m_AnchoredPosition: {x: -281, y: -189}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068798835

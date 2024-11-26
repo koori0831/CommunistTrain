@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEditor;
 
 public class ReturnArea : MonoBehaviour, IDropHandler
 {
@@ -11,7 +13,8 @@ public class ReturnArea : MonoBehaviour, IDropHandler
     private PaperGenarator _paperGenarator;
     [SerializeField] float returnPos, returnDuration;
 
-    public event Action<bool> OnReturnPaper;
+    public UnityEvent OnReturnPaper;
+
     private void Awake()
     {
         _paperGenarator = transform.parent.GetComponentInChildren<PaperGenarator>();
@@ -31,14 +34,16 @@ public class ReturnArea : MonoBehaviour, IDropHandler
 
             if (_paperGenarator.transform.childCount <= 0)
             {
-                OnReturnPaper?.Invoke(ComparePaper());
+                OnReturnPaper?.Invoke();
+                CheckingManager.Instance?.CompliemCheck(ComparePaper());
             }
         }
     }
 
     public void OnCallPolice()
     {
-        OnReturnPaper?.Invoke(!ComparePaper());
+        OnReturnPaper?.Invoke();
+        CheckingManager.Instance?.CompliemCheck(!ComparePaper());
     }
 
     private bool ComparePaper()
