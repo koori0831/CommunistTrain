@@ -13,7 +13,7 @@ public class PermitComponent : DragableObject
     {
         base.Awake();
         _paperGenarator = GetComponentInParent<PaperGenarator>();
-        _paperGenarator.OnGenarateEnd += SetPaper;
+        _paperGenarator.OnGenerateEnd += SetPaper;
         enumFactory = GetComponentInParent<EnumFactory>();
     }
 

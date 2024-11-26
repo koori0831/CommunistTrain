@@ -28,6 +28,9 @@ public enum Station
     area2,
     area3,
     area4,
+    area5,
+    area6,
+    area7,
     wrong
 }
 

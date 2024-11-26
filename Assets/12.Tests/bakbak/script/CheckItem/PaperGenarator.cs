@@ -4,12 +4,13 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class PaperGenarator : MonoBehaviour
 {
     public Permit permit;
     public TicketSetting ticket;
-    public event Action OnGenarateEnd;
+    public event Action OnGenerateEnd;
 
     public DayData today;
     private NameReader nameReader;
@@ -26,14 +27,14 @@ public class PaperGenarator : MonoBehaviour
     {
         today = DataManager.Instance.calendarData[0];//기본값 적용 후 수정 필요
         baseName = nameReader.GetRandomName();
-        GenaratePermit();
+        GeneratePermit();
     }
 
-    private void GenaratePermit()
+    private void GeneratePermit()
     {
-        string name = GetRandomBoolen(5) ?
+        string name = GetRandomBoolean(5) ?
             nameReader.GetRandomName(): baseName;
-        Issuer issuer = GetRandomBoolen(5) ?
+        Issuer issuer = GetRandomBoolean(5) ?
             Issuer.wrong:
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
         int index = 0;
@@ -48,7 +49,7 @@ public class PaperGenarator : MonoBehaviour
             Debug.LogError(ex.Message + " is not founded");
         }
 
-        if (GetRandomBoolen(5))
+        if (GetRandomBoolean(5))
         {
             int randomDay = Random.Range(0, index);
             date = DataManager.Instance.calendarData[index - randomDay];
@@ -63,11 +64,12 @@ public class PaperGenarator : MonoBehaviour
         {
             baseArea
         };
-        List<Station> defaltArea = new List<Station>(Enum.GetValues(typeof(Station)).ConvertTo<List<Station>>());
+        List<Station> defaltArea = Enum.GetValues(typeof(Station)).Cast<Station>().ToList();
+        defaltArea.ForEach(station => print(station));
         defaltArea.Remove(Station.wrong);
-        for (int i = 0; i < Random.Range(Mathf.Max(defaltArea.Count/2,3),Mathf.Max(defaltArea.Count/2 +3, 5)); i++)
+        for (int i = 0; i <= Random.Range(Mathf.Max(defaltArea.Count/2,3),Mathf.Min(defaltArea.Count/2 +3, defaltArea.Count)); i++)
         {
-            if (GetRandomBoolen(5))
+            if (GetRandomBoolean(5))
             {
                 allowArea.Add(Station.wrong);
             }
@@ -80,25 +82,24 @@ public class PaperGenarator : MonoBehaviour
         }
 
         permit = new Permit(name, issuer, date, allowArea);
-        GenarateTicket();
+        GenerateTicket();
 
     }
 
-    private void GenarateTicket()
+    private void GenerateTicket()
     {
-        string name = GetRandomBoolen(5) ?
+        string name = GetRandomBoolean(5) ?
             nameReader.GetRandomName() : baseName;
 
-        Issuer issuer = GetRandomBoolen(5) ?
+        Issuer issuer = GetRandomBoolean(5) ?
             Issuer.wrong :
             (Issuer)Random.Range(0, Enum.GetValues(typeof(Issuer)).Length - 1);
 
         int index = DataManager.Instance.calendarData.FindIndex(day => day == today);
-        DayData date = DataManager.Instance.calendarData[index];
+        DayData date;
 
-        if (GetRandomBoolen(95))
+        if (GetRandomBoolean(95))
         {
-            int randomDay = index;
             date = DataManager.Instance.calendarData[index];
         }
         else
@@ -106,29 +107,31 @@ public class PaperGenarator : MonoBehaviour
             int randomDay = Random.Range(0, DataManager.Instance.calendarData.Count);
             date = DataManager.Instance.calendarData[randomDay];
         }
-        List<Station> include = permit.allowArea;
+
+        List<Station> include = new List<Station>(permit.allowArea);
         Station begin = Station.wrong;
         Station arrive = Station.wrong;
 
-        if(GetRandomBoolen(95) == true)
+        if (GetRandomBoolean(95) && include.Count >= 2)
         {
             arrive = include[Random.Range(0, include.Count)];
             include.Remove(arrive);
-            begin = include[Random.Range(0, include.Count)];
 
+            begin = include[Random.Range(0, include.Count)];
+            include.Remove(begin);
         }
         else
         {
-            begin = (Station)Random.Range(0,Enum.GetValues(typeof(Station)).Length);
+            begin = (Station)Random.Range(0, Enum.GetValues(typeof(Station)).Length);
             arrive = (Station)Random.Range(0, Enum.GetValues(typeof(Station)).Length);
         }
 
         ticket = new TicketSetting(name, issuer, date, arrive, begin);
-        OnGenarateEnd?.Invoke();
-
+        OnGenerateEnd?.Invoke(); 
     }
 
-    private bool GetRandomBoolen(float percentage)
+
+    private bool GetRandomBoolean(float percentage)
     {
         float randomValue = Random.Range(0, 100f);
         if (randomValue < percentage)

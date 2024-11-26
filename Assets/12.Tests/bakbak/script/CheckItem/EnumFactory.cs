@@ -32,6 +32,9 @@ public class EnumFactory : MonoBehaviour
             Station.area2 => "나코",
             Station.area3 => "토토미",
             Station.area4 => "텐토로",
+            Station.area5 => "모토리스",
+            Station.area6 => "안펜도미",
+            Station.area7 => "니폰제쿠",
             Station.wrong => GetRandomWrongArea()
         };
     }
