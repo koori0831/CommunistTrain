@@ -7,7 +7,7 @@ public class TicketComponent : DragableObject, IDropHandler
 {
     private RectTransform _passport, _hole;
     private Mask _holeMask;
-    [SerializeField] private TextMeshProUGUI _issuer, _name, _takeDay, _startStation, _arriveStation;
+    [SerializeField] private TextMeshProUGUI _issuer, _name, _takeDay, _station;
 
     private PaperGenarator _paperGenarator;
     private EnumFactory _enumFactory;
@@ -40,7 +40,7 @@ public class TicketComponent : DragableObject, IDropHandler
             
             Cliper targetComponent = droppedObject.GetComponent<Cliper>(); 
 
-            if (targetComponent != null)
+            if (targetComponent != null&&Punched==false)
             {
                 _hole.anchoredPosition = droppedObject.anchoredPosition - _dragableImage.rectTransform.anchoredPosition;
                 _passport.anchoredPosition = -_hole.anchoredPosition;
@@ -54,8 +54,7 @@ public class TicketComponent : DragableObject, IDropHandler
     {
         _issuer.text = _enumFactory.GetIssuerName(_paperGenarator.ticket.issuer);
         _name.text = _paperGenarator.ticket.name;
-        _takeDay.text = _paperGenarator.ticket.date.ToString();
-        _startStation.text = _enumFactory.GetAreaString( _paperGenarator.ticket.beginingStation);
-        _arriveStation.text = _enumFactory.GetAreaString(_paperGenarator.ticket.beginingStation);
+        _takeDay.text = $"{_paperGenarator.ticket.month.ToString()} / {_paperGenarator.ticket.date.ToString()} / {_paperGenarator.ticket.week.ToString()}";
+        _station.text = _enumFactory.GetAreaString( _paperGenarator.ticket.beginingStation) + " to " + _enumFactory.GetAreaString(_paperGenarator.ticket.arriveStation);
     }
 }

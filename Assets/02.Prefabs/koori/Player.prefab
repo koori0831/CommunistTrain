@@ -49,7 +49,7 @@ MonoBehaviour:
   _detectorLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  _inputReader: {fileID: 0}
+  _inputReader: {fileID: 11400000, guid: 9504b8c733515b54f9cc3fb4b660ba39, type: 2}
 --- !u!135 &8434530424006470147
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caab0e43dd8f14d41bc3b8c6d68a96a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputReader: {fileID: 0}
+  _inputReader: {fileID: 11400000, guid: 9504b8c733515b54f9cc3fb4b660ba39, type: 2}
 --- !u!195 &3769485043327628474
 NavMeshAgent:
   m_ObjectHideFlags: 0
