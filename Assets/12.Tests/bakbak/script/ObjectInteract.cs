@@ -30,8 +30,7 @@ public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInt
 
     public virtual void Interact()
     {
-        print("³»¿ë¹° Æ¡");
-        if (_interactionUI.gameObject.activeSelf == false&&
+        if (_ticetCheckUI.gameObject.activeSelf == false&&
             _ticetCheckUI != null)
         {
             _ticetCheckUI.FadeYoyo();

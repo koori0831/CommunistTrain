@@ -112,7 +112,6 @@ public class PaperGenarator : MonoBehaviour
 
         if(GetRandomBoolen(95) == true)
         {
-            include.ForEach(s=>print(s));
             arrive = include[Random.Range(0, include.Count)];
             include.Remove(arrive);
             begin = include[Random.Range(0, include.Count)];

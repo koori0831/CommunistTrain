@@ -6,4 +6,6 @@ public class DataManager : MonoSingleton<DataManager>
     public DayData DayData { get; set; }
     public List<DayData> calendarData = new List<DayData>();
     public int Money { get; set; } = 1234;
+
+    public List<bool> checkPaperData = new List<bool>();
 }
