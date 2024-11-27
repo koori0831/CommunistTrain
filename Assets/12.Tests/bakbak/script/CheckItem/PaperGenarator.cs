@@ -65,7 +65,6 @@ public class PaperGenarator : MonoBehaviour
             baseArea
         };
         List<Station> defaltArea = Enum.GetValues(typeof(Station)).Cast<Station>().ToList();
-        defaltArea.ForEach(station => print(station));
         defaltArea.Remove(Station.wrong);
         for (int i = 0; i <= Random.Range(Mathf.Max(defaltArea.Count/2,3),Mathf.Min(defaltArea.Count/2 +3, defaltArea.Count)); i++)
         {

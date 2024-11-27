@@ -48,4 +48,11 @@ public class ClickToMove : MonoBehaviour
             OnMoveStart?.Invoke();
         }
     }
+
+    public void Warp(Vector3 posioitn)
+    {
+        _agentNavMesh.enabled = false;
+        _agentNavMesh.transform.position = posioitn;
+        _agentNavMesh.enabled = true;
+    }
 }
