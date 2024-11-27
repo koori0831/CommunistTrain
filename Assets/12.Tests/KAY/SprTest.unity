@@ -256,6 +256,16 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!4 &132338739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1522534131098046502, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+  m_PrefabInstance: {fileID: 1584996054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &132338740 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2319998805419544334, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+  m_PrefabInstance: {fileID: 1584996054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &262070070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,7 +1475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7312431138238479400, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_AutoRebind
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7312431138238479400, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_BoneTransforms.Array.size
@@ -1488,13 +1498,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 724232718}
     - target: {fileID: -7136716315280776454, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: m_AutoRebind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7136716315280776454, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_BoneTransforms.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7136716315280776454, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 132338739}
     - target: {fileID: -5783904610506161524, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Size.x
       value: 1.72
@@ -1538,19 +1552,27 @@ PrefabInstance:
     - target: {fileID: -1532355498254419217, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[0]'
       value: 
+      objectReference: {fileID: 132338740}
+    - target: {fileID: -1532355498254419217, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[1]'
+      value: 
+      objectReference: {fileID: 724232718}
+    - target: {fileID: 882733667708080802, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: m_AutoRebind
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 882733667708080802, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_BoneTransforms.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 882733667708080802, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 724232718}
     - target: {fileID: 882733667708080802, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[1]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 132338740}
     - target: {fileID: 1158518291841061694, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_AutoRebind
       value: 1
@@ -1562,9 +1584,13 @@ PrefabInstance:
     - target: {fileID: 1281640020475761890, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7590339073267868643, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      objectReference: {fileID: 7670044183125193092, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
     - target: {fileID: 1281640020475761890, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425477857701434113, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: m_AutoRebind
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3425477857701434113, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
@@ -1574,7 +1600,7 @@ PrefabInstance:
     - target: {fileID: 3425477857701434113, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 724232717}
     - target: {fileID: 3990545005075348271, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1907,7 +1933,7 @@ MonoBehaviour:
   m_CategoryHash: 1.8512243e-34
   m_labelHash: 1.2079726e-29
   m_SpriteKey: 0
-  m_SpriteHash: 741747974
+  m_SpriteHash: 501464155
 --- !u!114 &1584996066
 MonoBehaviour:
   m_ObjectHideFlags: 0
