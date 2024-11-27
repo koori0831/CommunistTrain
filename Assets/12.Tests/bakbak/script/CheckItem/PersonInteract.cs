@@ -4,6 +4,7 @@ public class PersonInteract : ObjectInteract
 {
 
     private CanvasControl _ticketCheckUI;
+    private bool _alreadyInteract = false;
 
     private void Awake()
     {
@@ -13,8 +14,10 @@ public class PersonInteract : ObjectInteract
     {
 
         if (_ticketCheckUI.gameObject.activeSelf == false &&
-            _ticketCheckUI != null)
+            _ticketCheckUI != null &&
+            !_alreadyInteract)
         {
+            _alreadyInteract = true;
             _ticketCheckUI.FadeYoyo();
         }
     }
