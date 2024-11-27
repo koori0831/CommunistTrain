@@ -341,7 +341,7 @@ MonoBehaviour:
   m_CategoryHash: 0.024146153
   m_labelHash: 1.2322848e-11
   m_SpriteKey: 0
-  m_SpriteHash: 326466888
+  m_SpriteHash: 36164157
 --- !u!114 &513224278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,7 +1540,11 @@ PrefabInstance:
     - target: {fileID: -4243252166955781955, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3718822655296175147, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      objectReference: {fileID: -1511639913834250653, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+    - target: {fileID: -3338671994352521447, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 843895561032298861, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
     - target: {fileID: -2226196734319079241, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1963,7 +1967,7 @@ MonoBehaviour:
   m_CategoryHash: 1.7667347e-13
   m_labelHash: 9.061885e-26
   m_SpriteKey: 0
-  m_SpriteHash: 692056086
+  m_SpriteHash: 47124100
 --- !u!114 &1584996068
 MonoBehaviour:
   m_ObjectHideFlags: 0

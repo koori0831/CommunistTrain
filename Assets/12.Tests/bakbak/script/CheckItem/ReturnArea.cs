@@ -11,6 +11,9 @@ public class ReturnArea : MonoBehaviour, IDropHandler
     private TicketComponent _ticketComponent;
     private PermitComponent _permitComponent;
     private PaperGenarator _paperGenarator;
+
+    private RectTransform _permitTransform;
+    private RectTransform _ticketTransform;
     [SerializeField] float returnPos, returnDuration;
 
     public UnityEvent OnReturnPaper;
@@ -20,7 +23,20 @@ public class ReturnArea : MonoBehaviour, IDropHandler
         _paperGenarator = transform.parent.GetComponentInChildren<PaperGenarator>();
         _ticketComponent = _paperGenarator.gameObject.GetComponentInChildren<TicketComponent>();
         _permitComponent = _paperGenarator.gameObject.GetComponentInChildren<PermitComponent>();
+        _permitTransform = _permitComponent.GetComponent<RectTransform>();
+        _ticketTransform = _ticketComponent.GetComponent<RectTransform>();
     }
+
+    private void OnEnable()
+    {
+        _permitTransform.SetParent(_paperGenarator.transform);
+        _permitTransform.anchoredPosition = Vector3.zero;
+        _permitTransform.gameObject.SetActive(true);
+        _ticketTransform.SetParent(_paperGenarator.transform);
+        _ticketTransform.anchoredPosition = Vector3.zero;
+        _ticketTransform.gameObject.SetActive(true);
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         GameObject droppedObject = eventData.pointerDrag;
@@ -28,8 +44,7 @@ public class ReturnArea : MonoBehaviour, IDropHandler
         {
             droppedObject.transform.parent = transform;
             Sequence moveDroppedObject = DOTween.Sequence();
-            moveDroppedObject.Append(droppedObject.GetComponent<RectTransform>().DOAnchorPosY(returnPos, returnDuration).SetEase(Ease.OutQuint)).
-                AppendCallback(() => droppedObject.SetActive(false));
+            moveDroppedObject.Append(droppedObject.GetComponent<RectTransform>().DOAnchorPosY(returnPos, returnDuration).SetEase(Ease.OutQuint));
             moveDroppedObject.Play();
 
             if (_paperGenarator.transform.childCount <= 0)
@@ -61,7 +76,7 @@ public class ReturnArea : MonoBehaviour, IDropHandler
 
     private bool CompareIssuer()
     {
-        if (_paperGenarator.permit.issuer != Issuer.wrong)
+        if (_paperGenarator.permit.issuer != Issuer.wrong&&_paperGenarator.ticket.issuer != Issuer.wrong)
             return true;
         return false;
     }
