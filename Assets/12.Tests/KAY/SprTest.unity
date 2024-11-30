@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 0.024146153
-  m_labelHash: 1.2322848e-11
+  m_labelHash: 1.3398859e-14
   m_SpriteKey: 0
   m_SpriteHash: 36164157
 --- !u!114 &513224278
@@ -1417,6 +1417,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &1508209174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2800530008725014353, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+  m_PrefabInstance: {fileID: 1584996054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1584996054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1608,15 +1613,15 @@ PrefabInstance:
     - target: {fileID: 3990545005075348271, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 84417888818872863, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      objectReference: {fileID: 7150421308504823899, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
     - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_BoneTransforms.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[0]'
       value: 
-      objectReference: {fileID: 1215571097}
+      objectReference: {fileID: 724232718}
     - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[1]'
       value: 
@@ -1631,6 +1636,30 @@ PrefabInstance:
       objectReference: {fileID: 1215571097}
     - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[4]'
+      value: 
+      objectReference: {fileID: 724232716}
+    - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[5]'
+      value: 
+      objectReference: {fileID: 724232717}
+    - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[6]'
+      value: 
+      objectReference: {fileID: 724232718}
+    - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1215571097}
+    - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[8]'
+      value: 
+      objectReference: {fileID: 132338740}
+    - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[9]'
+      value: 
+      objectReference: {fileID: 1508209174}
+    - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[10]'
       value: 
       objectReference: {fileID: 724232716}
     - target: {fileID: 8365157493335973819, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
@@ -1935,7 +1964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 1.8512243e-34
-  m_labelHash: 1.2079726e-29
+  m_labelHash: 1.5885985e-13
   m_SpriteKey: 0
   m_SpriteHash: 501464155
 --- !u!114 &1584996066
@@ -1965,7 +1994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 1.7667347e-13
-  m_labelHash: 9.061885e-26
+  m_labelHash: 1.627489e-20
   m_SpriteKey: 0
   m_SpriteHash: 47124100
 --- !u!114 &1584996068
