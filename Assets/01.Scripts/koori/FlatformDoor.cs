@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlatformDoor : ObjectInteract
 {
     public override void Interact()
     {
         base.Interact();
-        Debug.Log("±â.. ±âÂ÷¾Æ¾Ñ!");
+        SceneManager.LoadScene("TerrainMoveTest");
     }
 }
