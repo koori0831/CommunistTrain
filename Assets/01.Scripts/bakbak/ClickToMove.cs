@@ -14,7 +14,6 @@ public class ClickToMove : MonoBehaviour
     public event Action OnMoveStart;
     public event Action OnArrive;
     private Transform _meshParent;
-    private bool _isLocalMove;
     private void Awake()
     {
         _agentNavMesh = GetComponent<NavMeshAgent>();
@@ -23,19 +22,9 @@ public class ClickToMove : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        _isLocalMove = transform.root != transform;
-        if(_isLocalMove)
-        {
-            _meshParent = transform.root;
-        }
-
-    }
-
     private void Update()
     {
-        if (_agentNavMesh.remainingDistance <= _agentNavMesh.stoppingDistance && !_agentNavMesh.hasPath)
+        if (_agentNavMesh.remainingDistance <= _agentNavMesh.stoppingDistance)
         {
             OnArrive?.Invoke();
         }
@@ -56,7 +45,7 @@ public class ClickToMove : MonoBehaviour
         {
             Vector3 randomOffset = Random.insideUnitSphere * 0.5f;
             randomOffset.y = 0;
-            _agentNavMesh.destination = _isLocalMove ? _meshParent.TransformPoint(hitInfo.point + randomOffset) : hitInfo.point + randomOffset;
+            _agentNavMesh.destination = hitInfo.point + randomOffset;
             OnMoveStart?.Invoke();
         }
     }
