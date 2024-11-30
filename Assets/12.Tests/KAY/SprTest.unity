@@ -524,6 +524,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &724232720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724232714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb033b3a7ecdb5408c7dda825ada2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825646306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1561,7 @@ PrefabInstance:
     - target: {fileID: -3338671994352521447, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 843895561032298861, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      objectReference: {fileID: -7121662836859123766, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
     - target: {fileID: -2226196734319079241, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1572,7 +1584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 882733667708080802, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_BoneTransforms.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 882733667708080802, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: 'm_BoneTransforms.Array.data[0]'
@@ -1613,7 +1625,7 @@ PrefabInstance:
     - target: {fileID: 3990545005075348271, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7150421308504823899, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      objectReference: {fileID: -5320590608923139267, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
     - target: {fileID: 4859326049167943540, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       propertyPath: m_BoneTransforms.Array.size
       value: 5
@@ -1832,6 +1844,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 724232719}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 724232720}
     - targetCorrespondingSourceObject: {fileID: 5031817418978057462, guid: 40cbb2aea7848384287f06e11392cfc9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1584996068}
@@ -1994,9 +2009,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 1.7667347e-13
-  m_labelHash: 1.627489e-20
+  m_labelHash: 3.1360617e-30
   m_SpriteKey: 0
-  m_SpriteHash: 47124100
+  m_SpriteHash: 192079793
 --- !u!114 &1584996068
 MonoBehaviour:
   m_ObjectHideFlags: 0
