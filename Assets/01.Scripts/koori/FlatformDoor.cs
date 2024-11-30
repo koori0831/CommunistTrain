@@ -6,5 +6,6 @@ public class FlatformDoor : ObjectInteract
     {
         base.Interact();
         Debug.Log("기.. 기차아앗!");
+        TimeManager.Instance.SpendTime(TimeManager.Instance.Times);
     }
 }

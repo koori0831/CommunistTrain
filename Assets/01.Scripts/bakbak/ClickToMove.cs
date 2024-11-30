@@ -54,9 +54,17 @@ public class ClickToMove : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
+            // Local 좌표에서 randomOffset 계산 및 적용
+            Vector3 localHitPoint = _isLocalMove ? _meshParent.InverseTransformPoint(hitInfo.point) : hitInfo.point;
             Vector3 randomOffset = Random.insideUnitSphere * 0.5f;
             randomOffset.y = 0;
-            _agentNavMesh.destination = _isLocalMove ? _meshParent.TransformPoint(hitInfo.point + randomOffset) : hitInfo.point + randomOffset;
+            localHitPoint += randomOffset;
+
+
+            // 최종 목적지 계산 (Local 또는 World)
+            Vector3 destination = _isLocalMove ? _meshParent.TransformPoint(localHitPoint) : localHitPoint;
+
+            _agentNavMesh.destination = destination;
             OnMoveStart?.Invoke();
         }
     }
