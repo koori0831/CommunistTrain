@@ -1987,6 +1987,10 @@ PrefabInstance:
       propertyPath: _ticetCheckUI
       value: 
       objectReference: {fileID: 1674895842}
+    - target: {fileID: 992035718975710051, guid: bedf45d4aa582f64880b01a00e85023e, type: 3}
+      propertyPath: m_IgnoreFromBuild
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1890284060980076668, guid: bedf45d4aa582f64880b01a00e85023e, type: 3}
       propertyPath: m_Name
       value: Iteractobject (1)
@@ -2898,6 +2902,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5465651788190983616, guid: 06a39884a021850458b03b4151aedb75, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465651788190983616, guid: 06a39884a021850458b03b4151aedb75, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1455231471
+      objectReference: {fileID: 0}
     - target: {fileID: 8132668865392589273, guid: 06a39884a021850458b03b4151aedb75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.39
