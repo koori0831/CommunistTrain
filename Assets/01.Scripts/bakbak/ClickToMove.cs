@@ -1,33 +1,44 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class ClickToMove : MonoBehaviour
 {
     private NavMeshAgent _agentNavMesh;
-    private InputSystem_Actions _inputActions;
+    [SerializeField]
+    private InputReader _inputReader;
 
-
+    public event Action OnMoveStart;
+    public event Action OnArrive;
+    private Transform _meshParent;
     private void Awake()
     {
-        _agentNavMesh = GetComponent<NavMeshAgent>(); 
+        _agentNavMesh = GetComponent<NavMeshAgent>();
 
-        _inputActions = new InputSystem_Actions();
-        _inputActions.Player.Enable();
-        _inputActions.Player.MoveRequest.performed += ClickToMoveCall;
+        _inputReader.OnClick += ClickToMoveCall;
 
+    }
+
+    private void Update()
+    {
+        if (_agentNavMesh.remainingDistance <= _agentNavMesh.stoppingDistance)
+        {
+            OnArrive?.Invoke();
+        }
     }
 
     private void OnDestroy()
     {
-        if (_inputActions != null)
+        if (_inputReader != null)
         {
-            _inputActions.Player.MoveRequest.performed -= ClickToMoveCall;
-            _inputActions.Player.Disable();
+            _inputReader.OnClick -= ClickToMoveCall;
         }
     }
 
-    public void ClickToMoveCall(InputAction.CallbackContext context)
+    public void ClickToMoveCall()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
@@ -35,6 +46,14 @@ public class ClickToMove : MonoBehaviour
             Vector3 randomOffset = Random.insideUnitSphere * 0.5f;
             randomOffset.y = 0;
             _agentNavMesh.destination = hitInfo.point + randomOffset;
+            OnMoveStart?.Invoke();
         }
+    }
+
+    public void Warp(Vector3 posioitn)
+    {
+        _agentNavMesh.enabled = false;
+        _agentNavMesh.transform.position = posioitn;
+        _agentNavMesh.enabled = true;
     }
 }

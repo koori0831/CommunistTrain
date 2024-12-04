@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1eaec9f94b3088e479f57135b4fbe53c
+timeCreated: 1472930949
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 71536
+  packageName: Train - Steam engine
+  packageVersion: 1.0
+  assetPath: Assets/Train - Steam Engine/Prefabs/SE_Engine.prefab
+  uploadId: 277487

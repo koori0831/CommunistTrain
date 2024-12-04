@@ -2,25 +2,26 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InteractDetector : MonoBehaviour
 {
     [SerializeField] private Transform _detectorPosition;
     [SerializeField] private LayerMask _detectorLayerMask;
     List<Collider> collidersInRange = new List<Collider>();
-    Dictionary<Collider, IInteractable> interacts = new Dictionary<Collider, IInteractable>();
+    Dictionary<Collider, IInteraction> interacts = new Dictionary<Collider, IInteraction>();
 
     private Collider currentClosestCollider;
-
+    [SerializeField]
+    private InputReader _inputReader;
     private void Awake()
     {
-        
+        _inputReader.OnInteraction += InteractionTry;
     }
-
     private void OnTriggerEnter(Collider other)
     {
 
-        IEnterInteractionHandler interaction = other.GetComponent<IEnterInteractionHandler>();
+        IEnterInteractableHandler interaction = other.GetComponent<IEnterInteractableHandler>();
 
         if(!interacts.ContainsKey(other))
         {
@@ -36,14 +37,27 @@ public class InteractDetector : MonoBehaviour
         InteractEnable();
     }
 
+    private void OnDestroy()
+    {
+        if ((_inputReader != null))
+        {
+            _inputReader.OnInteraction -= InteractionTry;
+        }
+    }
+
+    private void InteractionTry()
+    {
+        if (currentClosestCollider == null) return;
+        interacts[currentClosestCollider].Interact();
+    }
+
     private void OnTriggerExit(Collider other)
     {
         InteractEnable();
         collidersInRange.Remove(other);
-        if(interacts.Count <= 1)
+        if(interacts.Count <= 1&&currentClosestCollider!=null)
         {
-
-            (interacts[currentClosestCollider] as IExitInterationHandler).ExitInteraction();
+            (interacts[currentClosestCollider] as IExitInteratableHandler).ExitInteraction();
             currentClosestCollider = null;
         }
         interacts.Remove(other);
@@ -60,7 +74,6 @@ public class InteractDetector : MonoBehaviour
             currentClosestCollider = null;
             return;
         }
-
         Collider closestCollider = CheckObjectDistant(collidersInRange);
         if (currentClosestCollider != closestCollider)
         {
@@ -68,7 +81,7 @@ public class InteractDetector : MonoBehaviour
             {
                 if (interacts.Count > 0)
                 {
-                    IExitInterationHandler exitHandler = interacts[currentClosestCollider] as IExitInterationHandler;
+                    IExitInteratableHandler exitHandler = interacts[currentClosestCollider] as IExitInteratableHandler;
 
                     exitHandler?.ExitInteraction();
                 }
@@ -77,7 +90,7 @@ public class InteractDetector : MonoBehaviour
             if (closestCollider != null)
             {
                 currentClosestCollider = closestCollider;
-                IEnterInteractionHandler enterHandler = interacts[currentClosestCollider] as IEnterInteractionHandler;
+                IEnterInteractableHandler enterHandler = interacts[currentClosestCollider] as IEnterInteractableHandler;
 
                 enterHandler?.EnterInteraction();
             }
@@ -93,7 +106,6 @@ public class InteractDetector : MonoBehaviour
     {
         Collider closestCollider = null;
         float closestDistance = Mathf.Infinity;
-
         foreach (Collider collider in colliders)
         {
             float distance = Vector3.Distance(transform.position, collider.transform.position);

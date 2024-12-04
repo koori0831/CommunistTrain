@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - WeekText
-  - 
+  - Player
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1455231471
     locked: 0
   - name: UI
     uniqueID: 342543741

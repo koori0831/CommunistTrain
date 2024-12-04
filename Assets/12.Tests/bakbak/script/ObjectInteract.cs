@@ -1,21 +1,54 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
-public class ObjectInteract : MonoBehaviour, IEnterInteractionHandler, IExitInterationHandler
+public class ObjectInteract : MonoBehaviour, IEnterInteractableHandler, IExitInteratableHandler
+
 {
-    private Transform _interactionUI;
-    private void Start()
+    private Bubble _interactionUI;
+    [SerializeField]
+    private Vector3 effectSize;
+    [SerializeField]
+    private Vector3 defaltSize;
+    [SerializeField]
+    private Transform _bubblePosition;
+
+    [SerializeField] 
+    private float effectDuration;
+
+    public virtual void EnterInteraction()
     {
-        _interactionUI = transform.GetChild(0);
+        _interactionUI = PoolManager.Instance.Pop("Bubble") as Bubble;
         _interactionUI.gameObject.SetActive(false);
+        _interactionUI.transform.SetParent(transform);
+        _interactionUI.transform.position = _bubblePosition.position;
+        _interactionUI.transform.localScale = defaltSize;
+        UIApear();
     }
-    public void EnterInteraction()
+
+    public virtual void Interact()
+    {
+        
+    }
+
+    public virtual void ExitInteraction()
+    {
+        UIDisapear();
+        
+    }
+
+    private void UIApear()
     {
         _interactionUI.gameObject.SetActive(true);
+        _interactionUI.transform.DOScale(effectSize, effectDuration).SetEase(Ease.InQuint);
     }
-
-    public void ExitInteraction()
+    
+    private void UIDisapear()
     {
-        _interactionUI.gameObject.SetActive(false);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(_interactionUI.transform.DOScale(defaltSize, effectDuration).SetEase(Ease.InQuint))
+            .AppendCallback(() => _interactionUI.gameObject.SetActive(false)).
+            AppendCallback(() => PoolManager.Instance.Push(_interactionUI));
+        sequence.Play();
     }
 }
