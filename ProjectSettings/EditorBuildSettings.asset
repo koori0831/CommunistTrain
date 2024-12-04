@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Scenes/Lemon/Test.unity
     guid: 1ad62742fe8cfa046b0171e8ab06afe7
+  - enabled: 1
+    path: Assets/12.Tests/bakbak/Scene/TerrainMoveTest.unity
+    guid: f63d2205284657b4dac7e17b632394de
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
